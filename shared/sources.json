@@ -1,0 +1,1495 @@
+{
+  "v2ex": {
+    "redirect": "v2ex-share",
+    "name": "V2EX",
+    "column": "tech",
+    "home": "https://v2ex.com/",
+    "color": "slate",
+    "interval": 600000,
+    "title": "最新分享"
+  },
+  "v2ex-share": {
+    "name": "V2EX",
+    "column": "tech",
+    "home": "https://v2ex.com/",
+    "color": "slate",
+    "interval": 600000,
+    "title": "最新分享"
+  },
+  "zhihu": {
+    "name": "知乎",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://www.zhihu.com",
+    "color": "blue",
+    "interval": 600000
+  },
+  "weibo": {
+    "title": "实时热搜",
+    "name": "微博",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://weibo.com",
+    "color": "red",
+    "interval": 120000
+  },
+  "zaobao": {
+    "name": "联合早报",
+    "type": "realtime",
+    "desc": "来自第三方网站: 早晨报",
+    "column": "world",
+    "home": "https://www.zaobao.com",
+    "color": "red",
+    "interval": 1800000
+  },
+  "coolapk": {
+    "title": "今日最热",
+    "name": "酷安",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://coolapk.com",
+    "color": "green",
+    "interval": 600000
+  },
+  "mktnews": {
+    "redirect": "mktnews-flash",
+    "name": "MKTNews",
+    "column": "finance",
+    "home": "https://mktnews.net",
+    "color": "indigo",
+    "interval": 120000,
+    "title": "快讯"
+  },
+  "mktnews-flash": {
+    "name": "MKTNews",
+    "column": "finance",
+    "home": "https://mktnews.net",
+    "color": "indigo",
+    "interval": 120000,
+    "title": "快讯"
+  },
+  "wallstreetcn": {
+    "redirect": "wallstreetcn-quick",
+    "name": "华尔街见闻",
+    "type": "realtime",
+    "column": "finance",
+    "home": "https://wallstreetcn.com/",
+    "color": "blue",
+    "interval": 300000,
+    "title": "快讯"
+  },
+  "wallstreetcn-quick": {
+    "name": "华尔街见闻",
+    "type": "realtime",
+    "column": "finance",
+    "home": "https://wallstreetcn.com/",
+    "color": "blue",
+    "interval": 300000,
+    "title": "快讯"
+  },
+  "wallstreetcn-news": {
+    "name": "华尔街见闻",
+    "column": "finance",
+    "home": "https://wallstreetcn.com/",
+    "color": "blue",
+    "interval": 1800000,
+    "title": "最新"
+  },
+  "wallstreetcn-hot": {
+    "name": "华尔街见闻",
+    "type": "hottest",
+    "column": "finance",
+    "home": "https://wallstreetcn.com/",
+    "color": "blue",
+    "interval": 1800000,
+    "title": "最热"
+  },
+  "36kr": {
+    "redirect": "36kr-quick",
+    "name": "36氪",
+    "type": "realtime",
+    "column": "tech",
+    "home": "https://36kr.com",
+    "color": "blue",
+    "interval": 600000,
+    "title": "快讯"
+  },
+  "36kr-quick": {
+    "name": "36氪",
+    "type": "realtime",
+    "column": "tech",
+    "home": "https://36kr.com",
+    "color": "blue",
+    "interval": 600000,
+    "title": "快讯"
+  },
+  "36kr-renqi": {
+    "name": "36氪",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://36kr.com",
+    "color": "blue",
+    "interval": 600000,
+    "title": "人气榜"
+  },
+  "douyin": {
+    "name": "抖音",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://www.douyin.com",
+    "color": "gray",
+    "interval": 600000
+  },
+  "hupu": {
+    "title": "主干道热帖",
+    "name": "虎扑",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://hupu.com",
+    "color": "red",
+    "interval": 600000
+  },
+  "aihot": {
+    "name": "AIHOT",
+    "type": "realtime",
+    "column": "tech",
+    "home": "https://aihot.virxact.com/all",
+    "color": "blue",
+    "interval": 300000
+  },
+  "tieba": {
+    "title": "热议",
+    "name": "百度贴吧",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://tieba.baidu.com",
+    "color": "blue",
+    "interval": 600000
+  },
+  "toutiao": {
+    "name": "今日头条",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://www.toutiao.com",
+    "color": "red",
+    "interval": 600000
+  },
+  "ithome": {
+    "name": "IT之家",
+    "type": "realtime",
+    "column": "tech",
+    "home": "https://www.ithome.com",
+    "color": "red",
+    "interval": 600000
+  },
+  "thepaper": {
+    "title": "热榜",
+    "name": "澎湃新闻",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://www.thepaper.cn",
+    "color": "gray",
+    "interval": 1800000
+  },
+  "sputniknewscn": {
+    "name": "卫星通讯社",
+    "column": "world",
+    "home": "https://sputniknews.cn",
+    "color": "orange",
+    "interval": 600000
+  },
+  "cankaoxiaoxi": {
+    "name": "参考消息",
+    "column": "world",
+    "home": "https://china.cankaoxiaoxi.com",
+    "color": "red",
+    "interval": 1800000
+  },
+  "cls": {
+    "redirect": "cls-telegraph",
+    "name": "财联社",
+    "type": "realtime",
+    "column": "finance",
+    "home": "https://www.cls.cn",
+    "color": "red",
+    "interval": 300000,
+    "title": "电报"
+  },
+  "cls-telegraph": {
+    "name": "财联社",
+    "type": "realtime",
+    "column": "finance",
+    "home": "https://www.cls.cn",
+    "color": "red",
+    "interval": 300000,
+    "title": "电报"
+  },
+  "cls-depth": {
+    "name": "财联社",
+    "column": "finance",
+    "home": "https://www.cls.cn",
+    "color": "red",
+    "interval": 600000,
+    "title": "深度"
+  },
+  "cls-hot": {
+    "name": "财联社",
+    "type": "hottest",
+    "column": "finance",
+    "home": "https://www.cls.cn",
+    "color": "red",
+    "interval": 600000,
+    "title": "热门"
+  },
+  "xueqiu": {
+    "redirect": "xueqiu-hotstock",
+    "name": "雪球",
+    "type": "hottest",
+    "column": "finance",
+    "home": "https://xueqiu.com",
+    "color": "blue",
+    "interval": 120000,
+    "title": "热门股票"
+  },
+  "xueqiu-hotstock": {
+    "name": "雪球",
+    "type": "hottest",
+    "column": "finance",
+    "home": "https://xueqiu.com",
+    "color": "blue",
+    "interval": 120000,
+    "title": "热门股票"
+  },
+  "gelonghui": {
+    "title": "事件",
+    "name": "格隆汇",
+    "type": "realtime",
+    "column": "finance",
+    "home": "https://www.gelonghui.com",
+    "color": "blue",
+    "interval": 120000
+  },
+  "fastbull": {
+    "redirect": "fastbull-express",
+    "name": "法布财经",
+    "type": "realtime",
+    "column": "finance",
+    "home": "https://www.fastbull.cn",
+    "color": "emerald",
+    "interval": 120000,
+    "title": "快讯"
+  },
+  "fastbull-express": {
+    "name": "法布财经",
+    "type": "realtime",
+    "column": "finance",
+    "home": "https://www.fastbull.cn",
+    "color": "emerald",
+    "interval": 120000,
+    "title": "快讯"
+  },
+  "fastbull-news": {
+    "name": "法布财经",
+    "column": "finance",
+    "home": "https://www.fastbull.cn",
+    "color": "emerald",
+    "interval": 1800000,
+    "title": "头条"
+  },
+  "solidot": {
+    "name": "Solidot",
+    "column": "tech",
+    "home": "https://solidot.org",
+    "color": "teal",
+    "interval": 3600000
+  },
+  "hackernews": {
+    "name": "Hacker News",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://news.ycombinator.com/",
+    "color": "orange",
+    "interval": 600000
+  },
+  "producthunt": {
+    "name": "Product Hunt",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://www.producthunt.com/",
+    "color": "red",
+    "interval": 600000
+  },
+  "github": {
+    "redirect": "github-trending-today",
+    "name": "Github",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://github.com/",
+    "color": "gray",
+    "interval": 600000,
+    "title": "Today"
+  },
+  "github-trending-today": {
+    "name": "Github",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://github.com/",
+    "color": "gray",
+    "interval": 600000,
+    "title": "Today"
+  },
+  "bilibili": {
+    "redirect": "bilibili-hot-search",
+    "name": "哔哩哔哩",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://www.bilibili.com",
+    "color": "blue",
+    "interval": 600000,
+    "title": "热搜"
+  },
+  "bilibili-hot-search": {
+    "name": "哔哩哔哩",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://www.bilibili.com",
+    "color": "blue",
+    "interval": 600000,
+    "title": "热搜"
+  },
+  "bilibili-hot-video": {
+    "name": "哔哩哔哩",
+    "type": "hottest",
+    "disable": "cf",
+    "column": "china",
+    "home": "https://www.bilibili.com",
+    "color": "blue",
+    "interval": 600000,
+    "title": "热门视频"
+  },
+  "bilibili-ranking": {
+    "name": "哔哩哔哩",
+    "type": "hottest",
+    "disable": "cf",
+    "column": "china",
+    "home": "https://www.bilibili.com",
+    "color": "blue",
+    "interval": 1800000,
+    "title": "排行榜"
+  },
+  "kuaishou": {
+    "name": "快手",
+    "type": "hottest",
+    "disable": "cf",
+    "column": "china",
+    "home": "https://www.kuaishou.com",
+    "color": "orange",
+    "interval": 600000
+  },
+  "kaopu": {
+    "name": "靠谱新闻",
+    "desc": "不一定靠谱，多看多思考",
+    "column": "world",
+    "home": "https://kaopu.news/",
+    "color": "gray",
+    "interval": 1800000
+  },
+  "jin10": {
+    "name": "金十数据",
+    "type": "realtime",
+    "column": "finance",
+    "home": "https://www.jin10.com",
+    "color": "blue",
+    "interval": 600000
+  },
+  "baidu": {
+    "name": "百度热搜",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://www.baidu.com",
+    "color": "blue",
+    "interval": 600000
+  },
+  "nowcoder": {
+    "name": "牛客",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://www.nowcoder.com",
+    "color": "blue",
+    "interval": 600000
+  },
+  "sspai": {
+    "name": "少数派",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://sspai.com",
+    "color": "red",
+    "interval": 600000
+  },
+  "juejin": {
+    "name": "稀土掘金",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://juejin.cn",
+    "color": "blue",
+    "interval": 600000
+  },
+  "ifeng": {
+    "title": "热点资讯",
+    "name": "凤凰网",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://www.ifeng.com",
+    "color": "red",
+    "interval": 600000
+  },
+  "chongbuluo": {
+    "redirect": "chongbuluo-latest",
+    "name": "虫部落",
+    "column": "china",
+    "home": "https://www.chongbuluo.com/forum.php?mod=guide&view=newthread",
+    "color": "green",
+    "interval": 1800000,
+    "title": "最新"
+  },
+  "chongbuluo-latest": {
+    "name": "虫部落",
+    "column": "china",
+    "home": "https://www.chongbuluo.com/forum.php?mod=guide&view=newthread",
+    "color": "green",
+    "interval": 1800000,
+    "title": "最新"
+  },
+  "chongbuluo-hot": {
+    "name": "虫部落",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://www.chongbuluo.com/forum.php?mod=guide&view=hot",
+    "color": "green",
+    "interval": 1800000,
+    "title": "最热"
+  },
+  "douban": {
+    "title": "热门电影",
+    "name": "豆瓣",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://www.douban.com",
+    "color": "green",
+    "interval": 600000
+  },
+  "steam": {
+    "title": "在线人数",
+    "name": "Steam",
+    "type": "hottest",
+    "column": "world",
+    "home": "https://store.steampowered.com",
+    "color": "blue",
+    "interval": 600000
+  },
+  "tencent": {
+    "redirect": "tencent-hot",
+    "name": "腾讯新闻",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://news.qq.com/tag/aEWqxLtdgmQ=",
+    "color": "blue",
+    "interval": 1800000,
+    "title": "综合早报"
+  },
+  "tencent-hot": {
+    "name": "腾讯新闻",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://news.qq.com/tag/aEWqxLtdgmQ=",
+    "color": "blue",
+    "interval": 1800000,
+    "title": "综合早报"
+  },
+  "freebuf": {
+    "title": "网络安全",
+    "name": "Freebuf",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://www.freebuf.com/",
+    "color": "green",
+    "interval": 600000
+  },
+  "qqvideo": {
+    "redirect": "qqvideo-tv-hotsearch",
+    "name": "腾讯视频",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://v.qq.com/channel/tv",
+    "color": "blue",
+    "interval": 1800000,
+    "title": "热搜榜"
+  },
+  "qqvideo-tv-hotsearch": {
+    "name": "腾讯视频",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://v.qq.com/channel/tv",
+    "color": "blue",
+    "interval": 1800000,
+    "title": "热搜榜"
+  },
+  "iqiyi": {
+    "redirect": "iqiyi-hot-ranklist",
+    "name": "爱奇艺",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://www.iqiyi.com",
+    "color": "green",
+    "interval": 1800000,
+    "title": "热播榜"
+  },
+  "iqiyi-hot-ranklist": {
+    "name": "爱奇艺",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://www.iqiyi.com",
+    "color": "green",
+    "interval": 1800000,
+    "title": "热播榜"
+  },
+  "weiboRealtime": {
+    "title": "实时热搜",
+    "name": "微博",
+    "type": "realtime",
+    "home": "https://weibo.com",
+    "color": "red",
+    "interval": 120000
+  },
+  "baiduRealtime": {
+    "title": "实时热搜",
+    "name": "百度热搜",
+    "type": "realtime",
+    "home": "https://www.baidu.com",
+    "color": "blue",
+    "interval": 120000
+  },
+  "toutiaoRealtime": {
+    "title": "实时热搜",
+    "name": "今日头条",
+    "type": "realtime",
+    "home": "https://www.toutiao.com",
+    "color": "red",
+    "interval": 120000
+  },
+  "thepaperRealtime": {
+    "title": "热榜",
+    "name": "澎湃新闻",
+    "type": "realtime",
+    "home": "https://www.thepaper.cn",
+    "color": "gray",
+    "interval": 1800000
+  },
+  "ifengRealtime": {
+    "title": "热点资讯",
+    "name": "凤凰网",
+    "type": "realtime",
+    "home": "https://www.ifeng.com",
+    "color": "red",
+    "interval": 120000
+  },
+  "tencentRealtime": {
+    "title": "综合早报",
+    "name": "腾讯新闻",
+    "type": "realtime",
+    "home": "https://news.qq.com",
+    "color": "blue",
+    "interval": 1800000
+  },
+  "bilibiliRealtime": {
+    "title": "热搜",
+    "name": "哔哩哔哩",
+    "type": "realtime",
+    "home": "https://www.bilibili.com",
+    "color": "blue",
+    "interval": 120000
+  },
+  "douyinRealtime": {
+    "title": "实时热搜",
+    "name": "抖音",
+    "type": "realtime",
+    "home": "https://www.douyin.com",
+    "color": "gray",
+    "interval": 120000
+  },
+  "kuaishouRealtime": {
+    "title": "实时热搜",
+    "name": "快手",
+    "type": "realtime",
+    "home": "https://www.kuaishou.com",
+    "color": "orange",
+    "interval": 120000
+  },
+  "nature": {
+    "title": "Nature 最新论文",
+    "name": "Nature",
+    "desc": "Nature 期刊最新发表论文",
+    "column": "nature",
+    "home": "https://www.nature.com",
+    "color": "emerald",
+    "interval": 1800000
+  },
+  "cell": {
+    "title": "Cell 最新论文",
+    "name": "Cell",
+    "desc": "Cell 期刊最新发表论文",
+    "column": "cell",
+    "home": "https://www.cell.com",
+    "color": "teal",
+    "interval": 1800000
+  },
+  "pnas": {
+    "title": "PNAS 最新论文",
+    "name": "PNAS",
+    "desc": "Proceedings of the National Academy of Sciences 最新发表论文",
+    "column": "pnas",
+    "home": "https://www.pnas.org",
+    "color": "purple",
+    "interval": 1800000
+  },
+  "nejm": {
+    "title": "NEJM 最新论文",
+    "name": "NEJM",
+    "desc": "New England Journal of Medicine 最新发表论文",
+    "column": "nejm",
+    "home": "https://www.nejm.org",
+    "color": "red",
+    "interval": 1800000
+  },
+  "arxiv": {
+    "title": "arXiv 预印本",
+    "name": "arXiv",
+    "desc": "arXiv 预印本平台最新论文（AI/ML 与物理等学科）",
+    "column": "arxiv",
+    "home": "https://arxiv.org",
+    "color": "blue",
+    "interval": 1800000
+  },
+  "science": {
+    "title": "Science 最新论文",
+    "name": "Science",
+    "desc": "Science 期刊最新发表论文",
+    "column": "science",
+    "home": "https://www.science.org",
+    "color": "blue",
+    "interval": 1800000
+  },
+  "sciadv": {
+    "title": "Science Advances 最新论文",
+    "name": "Science Advances",
+    "desc": "Science 子刊 Science Advances 最新论文",
+    "column": "sciadv",
+    "home": "https://www.science.org",
+    "color": "sky",
+    "interval": 1800000
+  },
+  "elife": {
+    "title": "eLife 最新论文",
+    "name": "eLife",
+    "desc": "eLife 期刊最新发表论文",
+    "column": "elife",
+    "home": "https://elifesciences.org",
+    "color": "fuchsia",
+    "interval": 1800000
+  },
+  "bmj": {
+    "title": "BMJ 最新论文",
+    "name": "BMJ",
+    "desc": "英国医学期刊 BMJ 最新论文",
+    "column": "bmj",
+    "home": "https://www.bmj.com",
+    "color": "rose",
+    "interval": 1800000
+  },
+  "natcomm": {
+    "title": "Nature Communications 最新论文",
+    "name": "Nature Communications",
+    "desc": "Nature 子刊 Nature Communications 最新论文",
+    "column": "natcomm",
+    "home": "https://www.nature.com",
+    "color": "emerald",
+    "interval": 1800000
+  },
+  "natmed": {
+    "title": "Nature Medicine 最新论文",
+    "name": "Nature Medicine",
+    "desc": "Nature 子刊 Nature Medicine 最新论文",
+    "column": "natmed",
+    "home": "https://www.nature.com",
+    "color": "red",
+    "interval": 1800000
+  },
+  "natbiotech": {
+    "title": "Nature Biotechnology 最新论文",
+    "name": "Nature Biotechnology",
+    "desc": "Nature 子刊 Nature Biotechnology 最新论文",
+    "column": "natbiotech",
+    "home": "https://www.nature.com",
+    "color": "pink",
+    "interval": 1800000
+  },
+  "natgen": {
+    "title": "Nature Genetics 最新论文",
+    "name": "Nature Genetics",
+    "desc": "Nature 子刊 Nature Genetics 最新论文",
+    "column": "natgen",
+    "home": "https://www.nature.com",
+    "color": "violet",
+    "interval": 1800000
+  },
+  "natphys": {
+    "title": "Nature Physics 最新论文",
+    "name": "Nature Physics",
+    "desc": "Nature 子刊 Nature Physics 最新论文",
+    "column": "natphys",
+    "home": "https://www.nature.com",
+    "color": "cyan",
+    "interval": 1800000
+  },
+  "natchem": {
+    "title": "Nature Chemistry 最新论文",
+    "name": "Nature Chemistry",
+    "desc": "Nature 子刊 Nature Chemistry 最新论文",
+    "column": "natchem",
+    "home": "https://www.nature.com",
+    "color": "amber",
+    "interval": 1800000
+  },
+  "natmat": {
+    "title": "Nature Materials 最新论文",
+    "name": "Nature Materials",
+    "desc": "Nature 子刊 Nature Materials 最新论文",
+    "column": "natmat",
+    "home": "https://www.nature.com",
+    "color": "lime",
+    "interval": 1800000
+  },
+  "natneuro": {
+    "title": "Nature Neuroscience 最新论文",
+    "name": "Nature Neuroscience",
+    "desc": "Nature 子刊 Nature Neuroscience 最新论文",
+    "column": "natneuro",
+    "home": "https://www.nature.com",
+    "color": "indigo",
+    "interval": 1800000
+  },
+  "natclimate": {
+    "title": "Nature Climate Change 最新论文",
+    "name": "Nature Climate Change",
+    "desc": "Nature 子刊 Nature Climate Change 最新论文",
+    "column": "natclimate",
+    "home": "https://www.nature.com",
+    "color": "teal",
+    "interval": 1800000
+  },
+  "natmethods": {
+    "title": "Nature Methods 最新论文",
+    "name": "Nature Methods",
+    "desc": "Nature 子刊 Nature Methods 最新论文",
+    "column": "natmethods",
+    "home": "https://www.nature.com",
+    "color": "orange",
+    "interval": 1800000
+  },
+  "natmicrobiol": {
+    "title": "Nature Microbiology 最新论文",
+    "name": "Nature Microbiology",
+    "desc": "Nature 子刊 Nature Microbiology 最新论文",
+    "column": "natmicrobiol",
+    "home": "https://www.nature.com",
+    "color": "rose",
+    "interval": 1800000
+  },
+  "natplants": {
+    "title": "Nature Plants 最新论文",
+    "name": "Nature Plants",
+    "desc": "Nature 子刊 Nature Plants 最新论文",
+    "column": "natplants",
+    "home": "https://www.nature.com",
+    "color": "green",
+    "interval": 1800000
+  },
+  "natrevcancer": {
+    "title": "Nature Reviews Cancer 最新论文",
+    "name": "Nature Reviews Cancer",
+    "desc": "Nature Reviews 系列 Nature Reviews Cancer 最新论文",
+    "column": "natrevcancer",
+    "home": "https://www.nature.com",
+    "color": "red",
+    "interval": 1800000
+  },
+  "natrevneuro": {
+    "title": "Nature Reviews Neuroscience 最新论文",
+    "name": "Nature Reviews Neuroscience",
+    "desc": "Nature Reviews 系列 Nature Reviews Neuroscience 最新论文",
+    "column": "natrevneuro",
+    "home": "https://www.nature.com",
+    "color": "violet",
+    "interval": 1800000
+  },
+  "pubmed": {
+    "title": "PubMed 最新论文",
+    "name": "PubMed",
+    "desc": "PubMed 生物医学文献最新论文（E-utilities 实时抓取）",
+    "column": "pubmed",
+    "home": "https://pubmed.ncbi.nlm.nih.gov",
+    "color": "emerald",
+    "interval": 1800000
+  },
+  "webofscience": {
+    "title": "Web of Science",
+    "name": "Web of Science",
+    "desc": "跨学科引文索引，经 Crossref 呈现近一年高被引论文",
+    "column": "webofscience",
+    "home": "https://www.webofscience.com",
+    "color": "blue",
+    "interval": 1800000
+  },
+  "sciencedirect": {
+    "title": "ScienceDirect",
+    "name": "ScienceDirect",
+    "desc": "Elsevier 出版平台，经 Crossref 实时获取最新论文",
+    "column": "sciencedirect",
+    "home": "https://www.sciencedirect.com",
+    "color": "orange",
+    "interval": 1800000
+  },
+  "springerlink": {
+    "title": "SpringerLink",
+    "name": "SpringerLink",
+    "desc": "Springer 出版平台，经 Crossref 实时获取最新论文",
+    "column": "springerlink",
+    "home": "https://link.springer.com",
+    "color": "green",
+    "interval": 1800000
+  },
+  "wiley": {
+    "title": "Wiley Online Library",
+    "name": "Wiley Online Library",
+    "desc": "Wiley 出版平台，经 Crossref 实时获取最新论文",
+    "column": "wiley",
+    "home": "https://onlinelibrary.wiley.com",
+    "color": "red",
+    "interval": 1800000
+  },
+  "ebsco": {
+    "title": "EBSCO（Academic Search Complete）",
+    "name": "EBSCO",
+    "desc": "跨学科聚合库，经 Crossref 呈现全学科最新论文",
+    "column": "ebsco",
+    "home": "https://www.ebsco.com",
+    "color": "teal",
+    "interval": 1800000
+  },
+  "ieee": {
+    "title": "IEEE Xplore",
+    "name": "IEEE Xplore",
+    "desc": "IEEE 出版平台，经 Crossref 实时获取最新论文",
+    "column": "ieee",
+    "home": "https://ieeexplore.ieee.org",
+    "color": "cyan",
+    "interval": 1800000
+  },
+  "iopscience": {
+    "title": "IOPscience（英国皇家物理学会）",
+    "name": "IOPscience",
+    "desc": "英国物理学会出版平台，经 Crossref 实时获取最新论文",
+    "column": "iopscience",
+    "home": "https://iopscience.iop.org",
+    "color": "violet",
+    "interval": 1800000
+  },
+  "asce": {
+    "title": "ASCE Library",
+    "name": "ASCE Library",
+    "desc": "美国土木工程师学会出版平台，经 Crossref 实时获取最新论文",
+    "column": "asce",
+    "home": "https://ascelibrary.org",
+    "color": "amber",
+    "interval": 1800000
+  },
+  "reaxys": {
+    "title": "Reaxys",
+    "name": "Reaxys",
+    "desc": "化学数据库，经 Crossref 呈现化学领域最新论文",
+    "column": "reaxys",
+    "home": "https://www.reaxys.com",
+    "color": "fuchsia",
+    "interval": 1800000
+  },
+  "sage": {
+    "title": "SAGE Journals",
+    "name": "SAGE Journals",
+    "desc": "SAGE 出版平台，经 Crossref 实时获取最新论文",
+    "column": "sage",
+    "home": "https://journals.sagepub.com",
+    "color": "rose",
+    "interval": 1800000
+  },
+  "psycinfo": {
+    "title": "PsycINFO",
+    "name": "PsycINFO",
+    "desc": "APA 心理学数据库，经 Crossref 实时获取最新论文",
+    "column": "psycinfo",
+    "home": "https://www.apa.org/pubs/databases/psycinfo",
+    "color": "indigo",
+    "interval": 1800000
+  },
+  "policy_gov": {
+    "title": "最新政策",
+    "name": "国务院",
+    "desc": "中国政府网国务院政策文件库最新发布",
+    "home": "https://www.gov.cn/zhengce/",
+    "color": "red",
+    "interval": 1800000
+  },
+  "policy_ndrc": {
+    "title": "最新政策",
+    "name": "国家发展改革委",
+    "desc": "国家发展改革委政策发布",
+    "home": "https://www.ndrc.gov.cn/",
+    "color": "amber",
+    "interval": 1800000
+  },
+  "policy_mof": {
+    "title": "最新政策",
+    "name": "财政部",
+    "desc": "财政部政策与财政新闻",
+    "home": "http://www.mof.gov.cn/",
+    "color": "green",
+    "interval": 1800000
+  },
+  "policy_moe": {
+    "title": "最新政策",
+    "name": "教育部",
+    "desc": "教育部政策文件与通知公告",
+    "home": "http://www.moe.gov.cn/",
+    "color": "blue",
+    "interval": 1800000
+  },
+  "policy_most": {
+    "title": "最新政策",
+    "name": "科技部",
+    "desc": "科技部政策与社会公开信息",
+    "home": "https://www.most.gov.cn/",
+    "color": "cyan",
+    "interval": 1800000
+  },
+  "policy_pbc": {
+    "title": "最新政策",
+    "name": "中国人民银行",
+    "desc": "中国人民银行政策与公开信息",
+    "home": "http://www.pbc.gov.cn/",
+    "color": "orange",
+    "interval": 1800000
+  },
+  "policy_csrc": {
+    "title": "最新政策",
+    "name": "证监会",
+    "desc": "证监会政策与监管公开信息",
+    "home": "http://www.csrc.gov.cn/",
+    "color": "violet",
+    "interval": 1800000
+  },
+  "policy_chinatax": {
+    "title": "最新政策",
+    "name": "国家税务总局",
+    "desc": "国家税务总局税收政策与公告",
+    "home": "http://www.chinatax.gov.cn/",
+    "color": "teal",
+    "interval": 1800000
+  },
+  "policy_mohrss": {
+    "title": "最新政策",
+    "name": "人力资源社会保障部",
+    "desc": "人社部政策与通知公告",
+    "home": "http://www.mohrss.gov.cn/",
+    "color": "fuchsia",
+    "interval": 1800000
+  },
+  "policy_miit": {
+    "title": "最新政策",
+    "name": "工业和信息化部",
+    "desc": "工信部政策与行业管理信息",
+    "home": "https://www.miit.gov.cn/",
+    "color": "indigo",
+    "interval": 1800000
+  },
+  "policy_stats": {
+    "title": "最新发布",
+    "name": "国家统计局",
+    "desc": "国家统计局最新统计数据发布",
+    "home": "https://www.stats.gov.cn/sj/zxfb/",
+    "color": "sky",
+    "interval": 1800000
+  },
+  "stats_sjjd": {
+    "title": "权威解读",
+    "name": "统计数据解读",
+    "desc": "国家统计局对最新统计数据与指标的权威解读",
+    "home": "https://www.stats.gov.cn/sj/sjjd/",
+    "color": "cyan",
+    "interval": 1800000
+  },
+  "stats_tjgb": {
+    "title": "统计公报",
+    "name": "年度统计公报",
+    "desc": "国家统计局年度国民经济和社会发展统计公报",
+    "home": "https://www.stats.gov.cn/sj/tjgb/ndtjgb/",
+    "color": "amber",
+    "interval": 3600000
+  },
+  "stats_pbc": {
+    "title": "央行月报",
+    "name": "金融统计数据报告",
+    "desc": "中国人民银行金融统计数据报告（货币供应、信贷等）",
+    "home": "http://www.pbc.gov.cn/diaochatongjisi/116219/116225/index.html",
+    "color": "red",
+    "interval": 1800000
+  },
+  "stats_pbc2": {
+    "title": "央行调查",
+    "name": "金融统计调查",
+    "desc": "中国人民银行金融统计调查与统计数据",
+    "home": "http://www.pbc.gov.cn/diaochatongjisi/116219/116319/index.html",
+    "color": "orange",
+    "interval": 1800000
+  },
+  "stats_mof": {
+    "title": "财政月报",
+    "name": "财政收支情况",
+    "desc": "财政部全国财政收支情况月度数据",
+    "home": "http://www.mof.gov.cn/zhengwuxinxi/caizhengshuju/",
+    "color": "emerald",
+    "interval": 1800000
+  },
+  "intl_wb": {
+    "title": "公开指标",
+    "name": "世界银行指标",
+    "desc": "世界银行公开发展指标目录（WDI）",
+    "home": "https://data.worldbank.org/indicator",
+    "color": "lime",
+    "interval": 3600000
+  },
+  "policy_nhsa": {
+    "title": "最新政策",
+    "name": "国家医疗保障局",
+    "desc": "国家医保局医保政策与通知公告",
+    "home": "https://www.nhsa.gov.cn/",
+    "color": "rose",
+    "interval": 1800000
+  },
+  "policy_mca": {
+    "title": "最新政策",
+    "name": "民政部",
+    "desc": "民政部通知公告与政策发布",
+    "home": "https://www.mca.gov.cn/n152/n165/index.html",
+    "color": "purple",
+    "interval": 1800000
+  },
+  "policy_mohurd": {
+    "title": "最新政策",
+    "name": "住房和城乡建设部",
+    "desc": "住建部住房与城乡建设政策与公告",
+    "home": "https://www.mohurd.gov.cn/",
+    "color": "yellow",
+    "interval": 1800000
+  },
+  "policy_moa": {
+    "title": "最新政策",
+    "name": "农业农村部",
+    "desc": "农业农村部三农政策与通知公告",
+    "home": "https://www.moa.gov.cn/",
+    "color": "lime",
+    "interval": 1800000
+  },
+  "policy_samr": {
+    "title": "最新政策",
+    "name": "国家市场监督管理总局",
+    "desc": "市场监管总局市场监督与消费政策",
+    "home": "https://www.samr.gov.cn/",
+    "color": "slate",
+    "interval": 1800000
+  },
+  "policy_mee": {
+    "title": "最新政策",
+    "name": "生态环境部",
+    "desc": "生态环境部生态环境政策与公告",
+    "home": "https://www.mee.gov.cn/",
+    "color": "pink",
+    "interval": 1800000
+  },
+  "policy_mot": {
+    "title": "最新政策",
+    "name": "交通运输部",
+    "desc": "交通运输部交通运输政策与通知",
+    "home": "https://www.mot.gov.cn/",
+    "color": "gray",
+    "interval": 1800000
+  },
+  "policy_mfa": {
+    "title": "政策文件",
+    "name": "外交部",
+    "desc": "外交部政策文件与条约文件",
+    "home": "https://www.mfa.gov.cn/web/ziliao_674904/zcwj_674915/",
+    "color": "cyan",
+    "interval": 1800000
+  },
+  "policy_mod": {
+    "title": "国防文件",
+    "name": "国防部",
+    "desc": "国防部发布的文件与法规文献",
+    "home": "http://www.mod.gov.cn/gfbw/fgwx/wj_213958/index.html",
+    "color": "red",
+    "interval": 1800000
+  },
+  "policy_mnr": {
+    "title": "政策解读",
+    "name": "自然资源部",
+    "desc": "自然资源部政策解读与通知公告",
+    "home": "https://www.mnr.gov.cn/gk/zcjd/",
+    "color": "lime",
+    "interval": 1800000
+  },
+  "policy_mwr": {
+    "title": "工作动态",
+    "name": "水利部",
+    "desc": "水利部工作动态与江河水利管理信息",
+    "home": "http://www.mwr.gov.cn/",
+    "color": "sky",
+    "interval": 1800000
+  },
+  "policy_mofcom": {
+    "title": "政策发布",
+    "name": "商务部",
+    "desc": "商务部政策发布与商务新闻",
+    "home": "https://www.mofcom.gov.cn/zwgk/zcfb/index.html",
+    "color": "amber",
+    "interval": 1800000
+  },
+  "policy_mct": {
+    "title": "政策公文",
+    "name": "文化和旅游部",
+    "desc": "文化和旅游部政策公文与通知",
+    "home": "https://www.mct.gov.cn/",
+    "color": "pink",
+    "interval": 1800000
+  },
+  "policy_mva": {
+    "title": "最新动态",
+    "name": "退役军人事务部",
+    "desc": "退役军人事务部最新动态与政策",
+    "home": "https://www.mva.gov.cn/",
+    "color": "violet",
+    "interval": 1800000
+  },
+  "policy_mem": {
+    "title": "工作动态",
+    "name": "应急管理部",
+    "desc": "应急管理与安全生产工作动态",
+    "home": "https://www.mem.gov.cn/",
+    "color": "orange",
+    "interval": 1800000
+  },
+  "policy_audit": {
+    "title": "最新动态",
+    "name": "审计署",
+    "desc": "审计署公告、报告与工作动态",
+    "home": "https://www.audit.gov.cn/",
+    "color": "teal",
+    "interval": 1800000
+  },
+  "policy_nrta": {
+    "title": "总局动态",
+    "name": "国家广播电视总局",
+    "desc": "国家广播电视总局新闻与政策",
+    "home": "https://www.nrta.gov.cn/",
+    "color": "indigo",
+    "interval": 1800000
+  },
+  "policy_sport": {
+    "title": "体育要闻",
+    "name": "国家体育总局",
+    "desc": "国家体育总局时政要闻与体育工作信息",
+    "home": "https://www.sport.gov.cn/",
+    "color": "green",
+    "interval": 1800000
+  },
+  "policy_forestry": {
+    "title": "林草动态",
+    "name": "国家林业和草原局",
+    "desc": "国家林草局林草生态保护与产业发展动态",
+    "home": "https://www.forestry.gov.cn/",
+    "color": "emerald",
+    "interval": 1800000
+  },
+  "policy_cnipa": {
+    "title": "最新动态",
+    "name": "国家知识产权局",
+    "desc": "知识产权保护运用与专利商标工作动态",
+    "home": "https://www.cnipa.gov.cn/",
+    "color": "fuchsia",
+    "interval": 1800000
+  },
+  "policy_natcm": {
+    "title": "最新动态",
+    "name": "国家中医药管理局",
+    "desc": "中医药管理局政策与工作动态",
+    "home": "http://www.natcm.gov.cn/",
+    "color": "purple",
+    "interval": 1800000
+  },
+  "policy_spb": {
+    "title": "最新动态",
+    "name": "国家邮政局",
+    "desc": "国家邮政局通知公告与行业政策",
+    "home": "https://www.spb.gov.cn/gjyzj/c100009/c100010/common_list.shtml",
+    "color": "slate",
+    "interval": 1800000
+  },
+  "policy_cma": {
+    "title": "气象动态",
+    "name": "中国气象局",
+    "desc": "中国气象局气象服务与防灾减灾信息",
+    "home": "https://www.cma.gov.cn/",
+    "color": "gray",
+    "interval": 1800000
+  },
+  "policy_lswz": {
+    "title": "粮食动态",
+    "name": "国家粮食和物资储备局",
+    "desc": "粮食和物资储备政策与安全监管信息",
+    "home": "https://www.lswz.gov.cn/",
+    "color": "yellow",
+    "interval": 1800000
+  },
+  "policy_nea": {
+    "title": "能源动态",
+    "name": "国家能源局",
+    "desc": "国家能源局能源政策与保供信息",
+    "home": "https://www.nea.gov.cn/",
+    "color": "rose",
+    "interval": 1800000
+  },
+  "policy_safe": {
+    "title": "外汇动态",
+    "name": "国家外汇管理局",
+    "desc": "外汇管理政策与国际收支数据",
+    "home": "https://www.safe.gov.cn/",
+    "color": "blue",
+    "interval": 1800000
+  },
+  "policy_cac": {
+    "title": "网信动态",
+    "name": "中央网信办",
+    "desc": "网络信息化与网络安全政策动态",
+    "home": "https://www.cac.gov.cn/",
+    "color": "indigo",
+    "interval": 1800000
+  },
+  "policy_sasac": {
+    "title": "国资动态",
+    "name": "国务院国资委",
+    "desc": "国务院国有资产监督管理信息",
+    "home": "http://www.sasac.gov.cn/",
+    "color": "orange",
+    "interval": 1800000
+  },
+  "policy_sac": {
+    "title": "标准动态",
+    "name": "国家标准委",
+    "desc": "国家标准化管理委员会标准制修订动态",
+    "home": "https://www.sac.gov.cn/",
+    "color": "teal",
+    "interval": 1800000
+  },
+  "policy_nra": {
+    "title": "铁路动态",
+    "name": "国家铁路局",
+    "desc": "国家铁路局新闻资讯与行业监管",
+    "home": "https://www.nra.gov.cn/xwzx/",
+    "color": "lime",
+    "interval": 1800000
+  },
+  "policy_npc": {
+    "title": "立法动态",
+    "name": "中国人大网",
+    "desc": "全国人大立法与执法检查动态",
+    "home": "http://www.npc.gov.cn/",
+    "color": "red",
+    "interval": 1800000
+  },
+  "policy_cppcc": {
+    "title": "政协动态",
+    "name": "中国政协网",
+    "desc": "全国政协会议与要闻动态",
+    "home": "http://www.cppcc.gov.cn/zxxw/yw/",
+    "color": "amber",
+    "interval": 1800000
+  },
+  "policy_court": {
+    "title": "司法动态",
+    "name": "最高人民法院",
+    "desc": "最高人民法院审判与司法改革动态",
+    "home": "https://www.court.gov.cn/",
+    "color": "cyan",
+    "interval": 1800000
+  },
+  "policy_spp": {
+    "title": "检察动态",
+    "name": "最高人民检察院",
+    "desc": "最高人民检察院通知公告与检察动态",
+    "home": "https://www.spp.gov.cn/spp/tzgg1/index.shtml",
+    "color": "violet",
+    "interval": 1800000
+  },
+  "policy_gwytb": {
+    "title": "对台政策",
+    "name": "国务院台办",
+    "desc": "国务院台湾事务办公室政策与对台信息",
+    "home": "http://www.gwytb.gov.cn/",
+    "color": "sky",
+    "interval": 1800000
+  },
+  "policy_hmo": {
+    "title": "港澳政策",
+    "name": "国务院港澳办",
+    "desc": "国务院港澳事务办公室政策与港澳信息",
+    "home": "http://www.hmo.gov.cn/",
+    "color": "pink",
+    "interval": 1800000
+  },
+  "policy_cast": {
+    "title": "科协动态",
+    "name": "中国科协",
+    "desc": "中国科学技术协会科普与科技工作者工作",
+    "home": "https://www.cast.org.cn/",
+    "color": "emerald",
+    "interval": 1800000
+  },
+  "policy_cdpf": {
+    "title": "残联动态",
+    "name": "中国残联",
+    "desc": "中国残疾人联合会残疾人事业信息",
+    "home": "https://www.cdpf.org.cn/",
+    "color": "fuchsia",
+    "interval": 1800000
+  },
+  "jama": {
+    "title": "最新期刊",
+    "name": "JAMA",
+    "desc": "美国医学会杂志 JAMA：临床医学与卫生政策顶级期刊",
+    "home": "https://jamanetwork.com/journals/jama",
+    "color": "red",
+    "interval": 3600000
+  },
+  "lancet": {
+    "title": "最新论文",
+    "name": "The Lancet",
+    "desc": "柳叶刀：全球最具影响力医学期刊之一",
+    "home": "https://www.thelancet.com",
+    "color": "rose",
+    "interval": 3600000
+  },
+  "neuron": {
+    "title": "最新论文",
+    "name": "Neuron",
+    "desc": "细胞 Press：神经科学顶级期刊",
+    "home": "https://www.cell.com/neuron/home",
+    "color": "indigo",
+    "interval": 3600000
+  },
+  "immunity": {
+    "title": "最新论文",
+    "name": "Immunity",
+    "desc": "细胞 Press：免疫学顶级期刊",
+    "home": "https://www.cell.com/immunity/home",
+    "color": "sky",
+    "interval": 3600000
+  },
+  "cancercell": {
+    "title": "最新论文",
+    "name": "Cancer Cell",
+    "desc": "细胞 Press：肿瘤学顶级期刊",
+    "home": "https://www.cell.com/cancer-cell/home",
+    "color": "fuchsia",
+    "interval": 3600000
+  },
+  "cellreports": {
+    "title": "最新论文",
+    "name": "Cell Reports",
+    "desc": "细胞 Press：Cell 主刊研究论文",
+    "home": "https://www.cell.com/cell-reports/home",
+    "color": "violet",
+    "interval": 3600000
+  },
+  "natrevgen": {
+    "title": "综述",
+    "name": "Nature Reviews Genetics",
+    "desc": "Nature Reviews：遗传学权威综述",
+    "home": "https://www.nature.com/nrg/",
+    "color": "emerald",
+    "interval": 3600000
+  },
+  "natrevdrug": {
+    "title": "综述",
+    "name": "Nature Reviews Drug Discovery",
+    "desc": "Nature Reviews：药物发现权威综述",
+    "home": "https://www.nature.com/nrd/",
+    "color": "teal",
+    "interval": 3600000
+  },
+  "biorxiv": {
+    "title": "预印本",
+    "name": "bioRxiv",
+    "desc": "生物学预印本平台最新论文",
+    "home": "https://www.biorxiv.org/",
+    "color": "lime",
+    "interval": 3600000
+  },
+  "medrxiv": {
+    "title": "预印本",
+    "name": "medRxiv",
+    "desc": "医学预印本平台最新论文",
+    "home": "https://www.medrxiv.org/",
+    "color": "green",
+    "interval": 3600000
+  },
+  "preprints": {
+    "title": "预印本",
+    "name": "Preprints.org",
+    "desc": "多学科预印本平台最新论文",
+    "home": "https://www.preprints.org/",
+    "color": "amber",
+    "interval": 3600000
+  },
+  "plosone": {
+    "title": "最新论文",
+    "name": "PLOS ONE",
+    "desc": "PLOS ONE：开放获取综合性期刊",
+    "home": "https://journals.plos.org/plosone",
+    "color": "orange",
+    "interval": 3600000
+  },
+  "plosbio": {
+    "title": "最新论文",
+    "name": "PLOS Biology",
+    "desc": "PLOS Biology：开放获取生命科学期刊",
+    "home": "https://journals.plos.org/plosbiology",
+    "color": "yellow",
+    "interval": 3600000
+  },
+  "jmlr": {
+    "title": "最新论文",
+    "name": "JMLR",
+    "desc": "Journal of Machine Learning Research：机器学习顶刊",
+    "home": "https://www.jmlr.org/",
+    "color": "purple",
+    "interval": 3600000
+  }
+}

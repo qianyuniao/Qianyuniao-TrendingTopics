@@ -1,0 +1,178 @@
+@import url(@unocss/reset/tailwind.css);
+@import url(overlayscrollbars/overlayscrollbars.css);
+
+html,
+body,
+#app {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'Baloo 2';
+  src: url("/fonts/Baloo2-Bold.subset.ttf");
+}
+
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  --at-apply: color-base bg-base text-base;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ---------- 暗色主题背景：透视网格 + 紫蓝光晕 ---------- */
+/* 两层均为固定定位的 body 伪元素，z-index 为负，不会拦截任何交互 */
+/* 光晕层：左上紫光 + 底部微蓝，构成整体的暗紫基调 */
+html.dark body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 58% 46% at 16% 18%, rgba(124, 58, 237, 0.34), transparent 70%),
+    radial-gradient(ellipse 70% 55% at 52% 120%, rgba(56, 130, 246, 0.18), transparent 72%);
+}
+
+/* 网格层：正交网格经 rotateX 压出透视，scale 补偿透视后的收缩，mask 让远处淡出 */
+html.dark body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(129, 140, 248, 0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(129, 140, 248, 0.18) 1px, transparent 1px);
+  background-size: 76px 76px;
+  transform: perspective(340px) rotateX(64deg) scale(2.4);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 64%);
+  mask-image: linear-gradient(to top, #000 0%, transparent 64%);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+}
+
+/* https://github.com/KingSora/OverlayScrollbars/blob/master/packages/overlayscrollbars/src/styles/themes.scss */
+.dark .os-theme-dark {
+  --os-handle-bg: rgba(255, 255, 255, 0.44);
+  --os-handle-bg-hover: rgba(255, 255, 255, 0.55);
+  --os-handle-bg-active: rgba(255, 255, 255, 0.66);
+}
+
+
+*, a, button {
+  cursor: default;
+  user-select: none;
+}
+
+#dropdown-menu li {
+  --at-apply: hover:bg-neutral-400/10 rounded-md flex items-center p-1 gap-1;
+}
+
+
+.grabbing * {
+  cursor: grabbing;
+}
+
+/* React Query Devtools（仅开发环境）左下角按钮：用站点 logo 替换第三方 Logo */
+.tsqd-open-btn-container > div {
+  /* 去掉 TanStack logo 的模糊光晕 */
+  display: none;
+}
+
+.tsqd-open-btn-container .tsqd-open-btn svg {
+  display: none;
+}
+
+.tsqd-open-btn-container .tsqd-open-btn {
+  width: 40px;
+  height: 40px;
+  background-image: url("/brand/brand-logo.png");
+  background-size: 34px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ---------- 面板轮廓与流星流光 ---------- */
+/* 立体轮廓：模拟光从上方来
+   - 内侧：顶部 / 左侧亮边（受光），底部 / 右侧暗边（背光），形成浮雕感
+   - 外侧：近投影 + 远投影两层，制造浮在背景之上的深度
+   box-shadow 不占布局，不会改变卡片尺寸 */
+.panel-outline {
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.14),
+    inset 1px 0 0 0 rgba(255, 255, 255, 0.05),
+    inset -1px 0 0 0 rgba(0, 0, 0, 0.22),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.34),
+    0 2px 4px -1px rgba(0, 0, 0, 0.32),
+    0 10px 24px -12px rgba(0, 0, 0, 0.55);
+}
+
+@property --meteor-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* 流星拖尾轮廓：给任意圆角容器加 .meteor-ring，鼠标悬停时一道流光沿边框环绕
+   原理：conic-gradient 画一段亮弧，用 mask 只保留边框区域，再旋转 --meteor-angle */
+.meteor-ring {
+  position: relative;
+}
+
+.meteor-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: conic-gradient(
+    from var(--meteor-angle),
+    transparent 0deg,
+    rgba(34, 211, 238, 0.15) 30deg,
+    rgba(34, 211, 238, 0.95) 70deg,
+    rgba(34, 211, 238, 0.15) 110deg,
+    transparent 150deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.meteor-ring:hover::after,
+.meteor-ring:focus-within::after {
+  opacity: 1;
+  animation: meteor-orbit 2.4s linear infinite;
+}
+
+@keyframes meteor-orbit {
+  to {
+    --meteor-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .meteor-ring:hover::after,
+  .meteor-ring:focus-within::after {
+    animation: none;
+  }
+}
