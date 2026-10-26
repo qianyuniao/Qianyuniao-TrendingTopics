@@ -1,3 +1,7 @@
+/**
+ * 热榜平台源：纽约时报 —— 纽约时报
+ * 返回该平台的实时榜单条目，由 server/hotboard/registry.ts 统一调度
+ */
 import type { HotboardItem } from "@shared/hotboard"
 import * as cheerio from "cheerio"
 import { UA_ANDROID_CHROME, httpGetText } from "../http"

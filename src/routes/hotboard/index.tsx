@@ -1,3 +1,6 @@
+/**
+ * 热榜首页：按分类展示各平台榜单入口
+ */
 import { createFileRoute } from "@tanstack/react-router"
 import { ALL_CATEGORY, HOTBOARD_CATEGORY_ORDER, OTHER_CATEGORY, categoryColor, categoryOf } from "@shared/hotboard"
 import { BoardToolbar } from "~/components/hotboard/board-toolbar"
@@ -5,6 +8,7 @@ import { Pill } from "~/components/hotboard/pill"
 import { PlatformCard } from "~/components/hotboard/platform-card"
 import { SortableBoard } from "~/components/hotboard/sortable-board"
 import { HOTBOARD_REFRESH_SECONDS, useHotboardPlatforms } from "~/hooks/useHotboard"
+import { BOARD_GRID_CLASS, BOARD_PAGE_CLASS, boardNoticeClass } from "~/utils"
 
 export const Route = createFileRoute("/hotboard/")({
   component: HotboardBoard,
@@ -50,7 +54,7 @@ function HotboardBoard() {
   }, [reset])
 
   return (
-    <div className="flex flex-col gap-4 p-2 sm:p-3">
+    <div className={BOARD_PAGE_CLASS}>
       <BoardToolbar
         color={categoryColor(category)}
         title="热榜广场"
@@ -72,7 +76,7 @@ function HotboardBoard() {
       </BoardToolbar>
 
       {isError && (
-        <div className="rounded-2xl p-4 bg-base bg-op-85! sprinkle-primary text-sm">
+        <div className={boardNoticeClass()}>
           平台列表获取失败，请稍后重试（热榜服务已内置于站点，无需单独启动）
         </div>
       )}
@@ -80,7 +84,7 @@ function HotboardBoard() {
       <SortableBoard
         storageKey="hotboard"
         ids={list.map(platform => platform.id)}
-        className="grid gap-4 sm:(grid-cols-2) lg:(grid-cols-3) xl:(grid-cols-4)"
+        className={BOARD_GRID_CLASS}
         renderCard={(id, sortable) => {
           const platform = list.find(item => item.id === id)
           if (!platform) return null
@@ -97,7 +101,7 @@ function HotboardBoard() {
       />
 
       {!!platforms && !list.length && (
-        <div className="rounded-2xl p-6 bg-base bg-op-85! text-sm op-70 text-center">
+        <div className={boardNoticeClass(true)}>
           没有匹配的榜单，换个关键词试试
         </div>
       )}

@@ -1,3 +1,6 @@
+/**
+ * 通用拖拽排序容器（dnd-kit 封装），栏目页与广场页共用
+ */
 import { monitorForElements } from "@atlaskit/pragmatic-drag-and-drop/element/adapter"
 import { combine } from "@atlaskit/pragmatic-drag-and-drop/combine"
 import { autoScrollForElements } from "@atlaskit/pragmatic-drag-and-drop-auto-scroll/element"

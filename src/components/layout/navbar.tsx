@@ -1,3 +1,6 @@
+/**
+ * 顶部导航栏：在栏目、热榜、广场之间切换并高亮当前位置
+ */
 import { fixedColumnIds, journalSet, metadata } from "@shared/metadata"
 import { Link, useRouterState } from "@tanstack/react-router"
 import { currentColumnIDAtom } from "~/atoms"
@@ -11,23 +14,30 @@ export function NavBar() {
   const isColumnRoute = pathname.startsWith("/c/")
   // 注意：currentColumnIDAtom 离开列路由后不会重置，
   // 因此「最热/实时/顶刊」必须叠加 isColumnRoute 判断，
-  // 否则会出现「短视频」与上次访问的列同时高亮
+  // 否则会出现「视频」与上次访问的列同时高亮
   const isJournals = pathname.startsWith("/journals") || (isColumnRoute && journalSet.has(currentId))
   const isPolicies = pathname.startsWith("/policies")
   const isDashboard = pathname.startsWith("/dashboard")
+  const isFocus = pathname.startsWith("/focus")
 
+  // 深色背景下继承色 + 低透明度会导致导航文字几乎看不见，
+  // 这里显式指定两套模式下的文字色，保证与背景的对比度
   const itemClass = (active = false) => $(
     "meteor-ring px-2 rounded-md cursor-pointer transition-all whitespace-nowrap",
-    active ? "color-primary font-bold" : "op-85 dark:op-100 hover:(bg-primary/10)",
+    active
+      ? "color-primary font-bold"
+      : "color-neutral-600 dark:color-neutral-200 hover:(color-primary bg-primary/10)",
   )
 
   // 顶刊下的 23 个期刊不单独占用一级 tab，统一收进「顶刊」广场入口
-  // 「关注」是空栏目（sources 为空），不再占用一级 tab，该位置改为「短视频」聚合看板
+  // 「收藏」是独立的 /focus 看板页（见 src/routes/focus.tsx），不占用栏目 tab
   const otherColumnIds = fixedColumnIds.filter(id => !journalSet.has(id) && id !== "focus")
 
   return (
     <span className={$([
-      "flex p-3 rounded-2xl bg-primary/1 text-sm",
+      "flex p-3 rounded-2xl text-sm",
+      // 加深底色并补一道边框，让导航条从页面背景中分离出来
+      "bg-primary/5 dark:bg-primary/10 border border-primary/20",
       "shadow shadow-primary/20 hover:shadow-primary/50 transition-shadow-500",
     ])}
     >
@@ -41,7 +51,7 @@ export function NavBar() {
         to="/shortvideo"
         className={itemClass(isShortVideo)}
       >
-        短视频
+        视频
       </Link>
       {otherColumnIds.map(columnId => (
         <Link
@@ -70,6 +80,12 @@ export function NavBar() {
         className={itemClass(isDashboard)}
       >
         数据看板
+      </Link>
+      <Link
+        to="/focus"
+        className={itemClass(isFocus)}
+      >
+        收藏
       </Link>
       <button
         type="button"

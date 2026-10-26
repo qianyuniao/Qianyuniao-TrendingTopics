@@ -1,3 +1,6 @@
+/**
+ * 看板配置云同步：登录后上传 / 拉取栏目与关注数据
+ */
 import type { PrimitiveMetadata } from "@shared/types"
 import { useDebounce, useMount } from "react-use"
 import { useLogin } from "./useLogin"

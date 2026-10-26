@@ -1,3 +1,7 @@
+/**
+ * 热榜平台源：抖音 —— 抖音热榜
+ * 返回该平台的实时榜单条目，由 server/hotboard/registry.ts 统一调度
+ */
 import type { HotboardItem } from "@shared/hotboard"
 import { UA_WIN_CHROME, httpGetText } from "../http"
 import { getTime } from "../time"

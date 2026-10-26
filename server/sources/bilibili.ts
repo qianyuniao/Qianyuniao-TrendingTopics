@@ -1,3 +1,7 @@
+/**
+ * 信息流源：哔哩哔哩
+ * 通过 defineSource 声明，返回统一的 NewsItem 列表
+ */
 interface WapRes {
   code: number
   exp_str: string

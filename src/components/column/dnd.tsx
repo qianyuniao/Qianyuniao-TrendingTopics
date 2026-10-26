@@ -1,3 +1,6 @@
+/**
+ * 首页栏目区：负责卡片的整体拖拽排序、批量预取与一键刷新
+ */
 import type { PropsWithChildren } from "react"
 import type { SourceID } from "@shared/types"
 import type { BaseEventPayload, ElementDragType } from "@atlaskit/pragmatic-drag-and-drop/dist/types/internal-types"
@@ -16,25 +19,16 @@ import { OverlayScrollbar } from "../common/overlay-scrollbar"
 import type { ItemsProps } from "./card"
 import { CardWrapper } from "./card"
 import { currentSourcesAtom } from "~/atoms"
+import { BOARD_GRID_CLASS } from "~/utils"
 
 const AnimationDuration = 200
+/** 移动端横向滑动时单张卡片的宽度 */
 const WIDTH = 350
-/** 卡片间距（gap-6 = 1.5rem） */
-const GRID_GAP = 24
-/** 看板每行最多几张卡片 */
-const MAX_COLUMNS = 4
 export function Dnd() {
   const [items, setItems] = useAtom(currentSourcesAtom)
   const [parent] = useAutoAnimate({ duration: AnimationDuration })
   useEntireQuery(items)
   const { width } = useWindowSize()
-  /** 每行 4 张，窗口变窄时逐级降级 */
-  const columns = useMemo(() => {
-    if (width >= 1280) return MAX_COLUMNS
-    if (width >= 1024) return 3
-    if (width >= 700) return 2
-    return 1
-  }, [width])
 
   if (!items.length) return null
 
@@ -42,19 +36,9 @@ export function Dnd() {
     <DndWrapper items={items} setItems={setItems} isSingleColumn={isMobile}>
       <OverlayScrollbar defer className="overflow-x-auto">
         <motion.ol
-          className={isMobile
-            ? "flex px-2 gap-6 pb-4 scroll-smooth"
-            : "grid w-full gap-6 mx-auto"}
+          // 桌面端与各广场共用同一套响应式网格，卡片宽度与顶刊广场一致
+          className={isMobile ? "flex px-2 gap-4 pb-4 scroll-smooth" : $(BOARD_GRID_CLASS, "px-2 sm:px-3")}
           ref={parent}
-          style={isMobile
-            ? {
-                // 横向滚动布局
-              }
-            : {
-                gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
-                // 卡片保持原始 350px 宽度：整行总宽封顶后居中，窗口不够宽时才等比收窄
-                maxWidth: `${columns * WIDTH + (columns - 1) * GRID_GAP}px`,
-              }}
           initial="hidden"
           animate="visible"
           variants={{

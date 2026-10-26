@@ -1,5 +1,10 @@
+/**
+ * 服务端内部类型（客户端请用 @shared/types）
+ * 涵盖 RSS 解析结果、缓存行、用户信息与数据源取数函数的签名
+ */
 import type { NewsItem, SourceID } from "@shared/types"
 
+/** RSS / Atom 解析后的结构，由 utils/rss2json.ts 产出 */
 export interface RSSInfo {
   title: string
   description: string
@@ -27,21 +32,6 @@ export interface CacheRow {
   updated: number
 }
 
-export interface RSSHubInfo {
-  title: string
-  home_page_url: string
-  description: string
-  items: RSSHubItem[]
-}
-
-export interface RSSHubItem {
-  id: string
-  url: string
-  title: string
-  content_html: string
-  date_published: string
-}
-
 export interface UserInfo {
   id: string
   email: string
@@ -49,13 +39,6 @@ export interface UserInfo {
   data: string
   created: number
   updated: number
-}
-
-export interface RSSHubOption {
-  // default: true
-  sorted?: boolean
-  // default: 20
-  limit?: number
 }
 
 export interface SourceOption {

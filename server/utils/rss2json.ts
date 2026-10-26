@@ -1,3 +1,7 @@
+/**
+ * RSS / Atom 解析：把上游 XML 转成统一的 RSSInfo 结构
+ * 供 defineRSSSource 使用，各源无需自己处理 XML
+ */
 import { XMLParser } from "fast-xml-parser"
 import type { RSSInfo } from "../types"
 

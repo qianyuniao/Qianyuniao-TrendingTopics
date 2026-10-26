@@ -1,3 +1,7 @@
+/**
+ * 热榜平台源：GameRes 游资网 —— GameRes 游资网最新资讯
+ * 返回该平台的实时榜单条目，由 server/hotboard/registry.ts 统一调度
+ */
 import type { HotboardItem } from "@shared/hotboard"
 import * as cheerio from "cheerio"
 import { absUrl, pickAttr, pickText } from "../html"

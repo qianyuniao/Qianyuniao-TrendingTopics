@@ -1,0 +1,8 @@
+name = "qianyuniao-trendingtopics"
+pages_build_output_dir = "dist/output/public"
+compatibility_date = "2026-10-03"
+
+[[d1_databases]]
+binding = "TRENDING_DB"
+database_name = "qianyuniao-trendingtopics"
+database_id = "09e10efe-2dc4-48c8-b3aa-c6d9df8abcf6"

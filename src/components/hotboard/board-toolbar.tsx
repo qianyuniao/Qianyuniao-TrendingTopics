@@ -11,6 +11,7 @@ export function BoardToolbar({
   search,
   onRefresh,
   countdown,
+  className,
   children,
 }: {
   color: string
@@ -25,6 +26,8 @@ export function BoardToolbar({
   }
   onRefresh?: () => void
   countdown?: number
+  /** 追加到外层容器，用于专栏页等自带边距的场景 */
+  className?: string
   children?: ReactNode
 }) {
   return (
@@ -33,6 +36,7 @@ export function BoardToolbar({
       "bg-base bg-op-85!",
       "panel-outline meteor-ring",
       `sprinkle-${color}`,
+      className,
     )}
     >
       <div className="flex flex-wrap items-center gap-3">

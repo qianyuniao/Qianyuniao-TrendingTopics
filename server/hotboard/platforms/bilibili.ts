@@ -1,3 +1,7 @@
+/**
+ * 热榜平台源：哔哩哔哩 —— 哔哩哔哩热门榜单
+ * 返回该平台的实时榜单条目，由 server/hotboard/registry.ts 统一调度
+ */
 import type { HotboardItem } from "@shared/hotboard"
 import { toHttps } from "../html"
 import { UA_WIN_CHROME, httpGet } from "../http"

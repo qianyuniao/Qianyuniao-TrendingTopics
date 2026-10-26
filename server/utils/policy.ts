@@ -1,3 +1,9 @@
+/**
+ * 政策类数据源的通用抓取器
+ * 各部委官网结构不一，这里按 PolicySourceConfig 里的选择器抽取列表，
+ * 站点改版时只需改配置里的选择器，不必重写抓取逻辑；
+ * 部分站点是纯前端渲染（列表由 JS 生成），故用 node:vm 执行页面脚本取出数据
+ */
 import { createContext, runInContext } from "node:vm"
 import * as cheerio from "cheerio"
 import type { NewsItem } from "@shared/types"
@@ -108,6 +114,27 @@ export const policySources: PolicySourceConfig[] = [
   // ===== 国际权威统计机构（数据看板）=====
   // 注：联合国新闻（news.un.org）对服务端进程启用了反爬，稳定返回 0 条，故只保留链接入口。
   { id: "intl_wb", name: "世界银行指标", url: "https://data.worldbank.org/indicator", mode: "container", intl: true },
+  // ===== 各部委官方数据统计栏目（数据看板）=====
+  { id: "stats_csrc", name: "证监会统计信息", url: "http://www.csrc.gov.cn/csrc/c100120/common_list.shtml", item: "#list li", title: "a", date: "span.time" },
+  { id: "stats_ndrc", name: "价格监测", url: "https://www.ndrc.gov.cn/fgsj/", item: "li", title: "a" },
+  { id: "stats_moe", name: "教育统计", url: "http://www.moe.gov.cn/jyb_sjzl/", item: "li", title: "a" },
+  { id: "stats_mofcom", name: "商务统计数据", url: "https://www.mofcom.gov.cn/zwgk/tjsj/", item: "li", title: "a" },
+  { id: "stats_moa", name: "农业数据", url: "https://www.moa.gov.cn/", mode: "container" },
+  { id: "stats_mnr", name: "自然资源数据", url: "https://www.mnr.gov.cn/sj/", mode: "container" },
+  { id: "stats_mva", name: "退役军人事务数据", url: "https://www.mva.gov.cn/", mode: "container" },
+  { id: "stats_mem", name: "应急管理动态", url: "https://www.mem.gov.cn/xw/", mode: "container" },
+  { id: "stats_nhsa", name: "医保统计信息", url: "https://www.nhsa.gov.cn/col/col7/index.html", item: "li", title: "a" },
+  { id: "stats_sasac", name: "国资国企数据", url: "http://www.sasac.gov.cn/n2588025/n2588129/index.html", item: "li", title: "a" },
+  { id: "stats_tax", name: "税务统计信息", url: "http://www.chinatax.gov.cn/chinatax/n810341/n810825/index.html", item: "li", title: "a" },
+  { id: "stats_cma", name: "气象数据", url: "https://www.cma.gov.cn/", mode: "container" },
+  { id: "stats_lswz", name: "粮食储备数据", url: "https://www.lswz.gov.cn/", mode: "container" },
+  { id: "stats_mee", name: "生态环境统计", url: "https://www.mee.gov.cn/hjzl/", mode: "container" },
+  { id: "policy_neac", name: "国家民委", url: "https://www.neac.gov.cn/", item: "li", title: "a" },
+  { id: "policy_ncha", name: "国家文物局", url: "http://www.ncha.gov.cn/", item: "li", title: "a" },
+  { id: "policy_nia", name: "国家移民管理局", url: "https://www.nia.gov.cn/", item: "li", title: "a" },
+  { id: "stats_nsfc", name: "科学基金数据", url: "https://www.nsfc.gov.cn/", mode: "container" },
+  { id: "stats_cnipa", name: "知识产权数据", url: "https://www.cnipa.gov.cn/", mode: "container" },
+  { id: "stats_eastmoney", name: "东方财富数据", url: "https://finance.eastmoney.com/", item: "li", title: "a" },
 ]
 
 function absUrl(href: string, base: string): string {
@@ -250,6 +277,22 @@ function unwrapRepeatedTitle(text: string): string {
 }
 
 /**
+ * 加载列表页 HTML。
+ * 部分政府 CMS（如国家医疗保障局使用的韦伯/长城网系统）把列表条目放在
+ * `<![CDATA[ ... ]]>` 数据块里，直接 cheerio.load 解析不到 <li>，
+ * 此时改为解析 CDATA 块内的 HTML。
+ */
+function loadListHtml(html: string) {
+  const $ = cheerio.load(html)
+  if ($("li a").length) return $
+  const blocks = [...html.matchAll(/<!\[CDATA\[([\s\S]*?)\]\]>/g)]
+    .map(m => m[1])
+    .filter(s => s.includes("<li"))
+  if (!blocks.length) return $
+  return cheerio.load(blocks.join("\n"))
+}
+
+/**
  * 通用政府政策抓取器：解析部门官网政策列表页，提取标题 / 链接 / 发布时间。
  * 给定 item 选择器匹配不到时，自动兜底扫描全页看起来像政策条目的 <a>
  * （文本长度 8-80、同域或 *.gov.cn），以适配不同部门官网结构差异。
@@ -259,7 +302,7 @@ export function definePolicySource(config: PolicySourceConfig) {
   const limit = config.limit ?? 30
   return defineSource(async () => {
     const { html, pageUrl } = await fetchWithFallback(config)
-    const $ = cheerio.load(html)
+    const $ = loadListHtml(html)
     const baseHost = new URL(pageUrl).hostname
     const items: NewsItem[] = []
 
@@ -354,10 +397,11 @@ export function definePolicySource(config: PolicySourceConfig) {
       })
     }
 
-    // 兜底：item 选择器无匹配时按配置策略取条目（默认 DOM 顺序，保持原有行为）
+    // 兜底：item 选择器无匹配时按配置策略取条目（默认 DOM 顺序，保持原有行为）；
+    // container 模式若选不出足够密集的容器（链接分散在多个小列表里），再降级为 DOM 顺序扫描
     if (!items.length) {
       const picked = config.mode === "container" ? collectByContainer() : collectByDom()
-      items.push(...(picked.length ? picked : collectByContainer()))
+      items.push(...(picked.length ? picked : collectByDom()))
     }
 
     const seen = new Set<string>()

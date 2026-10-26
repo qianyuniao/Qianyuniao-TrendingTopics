@@ -1,3 +1,7 @@
+/**
+ * 信息流源：utils
+ * 通过 defineSource 声明，返回统一的 NewsItem 列表
+ */
 // https://github.com/DIYgod/RSSHub/blob/master/lib/routes/coolapk/utils.ts
 function getRandomDEVICE_ID() {
   const r = [10, 6, 6, 6, 14]

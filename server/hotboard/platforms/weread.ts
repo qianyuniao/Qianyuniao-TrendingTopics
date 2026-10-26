@@ -1,3 +1,7 @@
+/**
+ * 热榜平台源：微信读书 —— 微信读书排行榜
+ * 返回该平台的实时榜单条目，由 server/hotboard/registry.ts 统一调度
+ */
 import md5 from "md5"
 import type { HotboardItem } from "@shared/hotboard"
 import { httpGet } from "../http"

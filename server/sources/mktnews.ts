@@ -1,3 +1,7 @@
+/**
+ * 信息流源：MKTNews
+ * 通过 defineSource 声明，返回统一的 NewsItem 列表
+ */
 interface Report {
   id: string
   type: number

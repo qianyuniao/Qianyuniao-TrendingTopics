@@ -8,11 +8,12 @@ import type { HotboardResponse } from "@shared/hotboard"
 import { categoryOf, platformColor } from "@shared/hotboard"
 import type { SourceID } from "@shared/types"
 import { BoardRow } from "~/components/hotboard/board-row"
+import { hotboardRow } from "~/components/hotboard/row-data"
 import { CardActions } from "~/components/hotboard/card-actions"
 import { PlatformIcon } from "~/components/hotboard/platform-icon"
 import { RefreshButton } from "~/components/hotboard/refresh-button"
 import { useHotboardPlatforms } from "~/hooks/useHotboard"
-import { BOARD_CARD_BASE } from "~/utils"
+import { BOARD_CARD_BASE, BOARD_PAGE_CLASS } from "~/utils"
 
 export const Route = createFileRoute("/hotboard/$platform")({
   validateSearch: (search: Record<string, unknown>): Record<string, string> => {
@@ -52,12 +53,11 @@ function HotboardPlatformPage() {
   const { isFocused, toggleFocus } = useFocusWith(platform as SourceID)
 
   return (
-    <div className="flex flex-col gap-4 p-2 sm:p-3">
+    <div className={BOARD_PAGE_CLASS}>
       <div className={$(
         BOARD_CARD_BASE,
         "gap-3",
-        `bg-${color}-500 dark:bg-${color} bg-op-40!`,
-        `sprinkle-${color}`,
+        `gp-${color}`,
       )}
       >
         <div className="flex flex-wrap items-center gap-3">
@@ -143,7 +143,7 @@ function HotboardPlatformPage() {
           {data?.items.map((item, index) => (
             <BoardRow
               key={item.id ?? index}
-              item={item}
+              row={hotboardRow(item)}
               index={index}
               color={color}
               variant="detail"

@@ -1,3 +1,7 @@
+/**
+ * 热榜平台源：豆瓣 —— 豆瓣讨论精选和豆瓣电影新片榜
+ * 返回该平台的实时榜单条目，由 server/hotboard/registry.ts 统一调度
+ */
 import type { HotboardItem } from "@shared/hotboard"
 import * as cheerio from "cheerio"
 import { httpGetText } from "../http"

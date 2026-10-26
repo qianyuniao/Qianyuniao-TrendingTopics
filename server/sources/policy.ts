@@ -1,5 +1,5 @@
-import type { SourceGetter } from "#/types"
 import { definePolicySource, policySources } from "../utils/policy"
+import type { SourceGetter } from "#/types"
 
 /**
  * 政策源集合：一个文件汇总所有职能部门政策源，新增部门只需改 server/utils/policy.ts 的配置。

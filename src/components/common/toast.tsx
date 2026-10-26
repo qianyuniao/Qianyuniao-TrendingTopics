@@ -1,3 +1,6 @@
+/**
+ * 全局提示条：消费 toastAtom 队列并渲染，支持操作按钮与自动消失
+ */
 import { useCallback, useMemo, useRef } from "react"
 import { useMount, useWindowSize } from "react-use"
 import { useAutoAnimate } from "@formkit/auto-animate/react"

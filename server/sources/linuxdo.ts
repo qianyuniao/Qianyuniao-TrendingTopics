@@ -1,3 +1,7 @@
+/**
+ * 信息流源：linuxdo
+ * 通过 defineSource 声明，返回统一的 NewsItem 列表
+ */
 interface Res {
   topic_list: {
     can_create_topic: boolean

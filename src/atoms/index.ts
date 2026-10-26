@@ -1,3 +1,6 @@
+/**
+ * 全局状态入口（jotai）：当前栏目、关注源、看板元数据、登录态等 atom 都从这里导出
+ */
 import type { FixedColumnID, SourceID } from "@shared/types"
 import type { Update } from "./types"
 

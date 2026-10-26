@@ -1,3 +1,8 @@
+/**
+ * 日期解析工具
+ * 上游返回的时间格式五花八门（"3小时前"、"今天 20:00"、"2024-01-01"），
+ * 这里统一解析成 Date，供看板展示与排序使用
+ */
 import dayjs from "dayjs/esm"
 import utcPlugin from "dayjs/esm/plugin/utc"
 import timezonePlugin from "dayjs/esm/plugin/timezone"

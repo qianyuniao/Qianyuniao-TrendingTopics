@@ -1,3 +1,7 @@
+/**
+ * 信息流源：PubMed —— PubMed 生物医学文献最新论文（E-utilities 实时抓取）
+ * 通过 defineSource 声明，返回统一的 NewsItem 列表
+ */
 import { defineSource } from "../utils/source"
 import { myFetch } from "../utils/fetch"
 

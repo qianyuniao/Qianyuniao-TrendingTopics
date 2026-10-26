@@ -6,6 +6,7 @@ import * as csdn from "./csdn"
 import * as cto51 from "./cto51"
 import * as dgtle from "./dgtle"
 import * as douban from "./douban"
+import * as douyu from "./douyu"
 import * as douyin from "./douyin"
 import * as earthquake from "./earthquake"
 import * as gameres from "./gameres"
@@ -16,6 +17,7 @@ import * as hackernews from "./hackernews"
 import * as haokan from "./haokan"
 import * as hellogithub from "./hellogithub"
 import * as hostloc from "./hostloc"
+import * as huya from "./huya"
 import * as hupu from "./hupu"
 import * as huxiu from "./huxiu"
 import * as ifanr from "./ifanr"
@@ -34,10 +36,12 @@ import * as ngabbs from "./ngabbs"
 import * as nodeseek from "./nodeseek"
 import * as nytimes from "./nytimes"
 import * as pojie52 from "./pojie52"
+import * as pptv from "./pptv"
 import * as qqnews from "./qqnews"
 import * as sina from "./sina"
 import * as sinanews from "./sinanews"
 import * as sspai from "./sspai"
+import * as tencent from "./tencent"
 import * as thepaper from "./thepaper"
 import * as tieba from "./tieba"
 import * as todayinhistory from "./todayinhistory"
@@ -63,6 +67,7 @@ export const platforms = {
   cto51,
   dgtle,
   douban,
+  douyu,
   douyin,
   earthquake,
   gameres,
@@ -74,6 +79,7 @@ export const platforms = {
   hellogithub,
   hostloc,
   hupu,
+  huya,
   huxiu,
   ifanr,
   iqiyi,
@@ -91,10 +97,12 @@ export const platforms = {
   nodeseek,
   nytimes,
   pojie52,
+  pptv,
   qqnews,
   sina,
   sinanews,
   sspai,
+  tencent,
   thepaper,
   tieba,
   todayinhistory,

@@ -1,3 +1,6 @@
+/**
+ * 顶栏下拉菜单：刷新、同步、关于等操作的集合
+ */
 import { motion } from "framer-motion"
 
 export function Menu() {

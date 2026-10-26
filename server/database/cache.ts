@@ -1,3 +1,8 @@
+/**
+ * 源数据缓存表
+ * 抓取结果按 source id 存进 cache 表（id / updated / data），
+ * 由 api/s 在刷新间隔与 TTL 内直接复用，减少对上游的请求压力
+ */
 import process from "node:process"
 import type { NewsItem } from "@shared/types"
 import type { Database } from "db0"

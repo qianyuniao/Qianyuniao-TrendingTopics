@@ -1,3 +1,7 @@
+/**
+ * 信息流源：Freebuf
+ * 通过 defineSource 声明，返回统一的 NewsItem 列表
+ */
 import process from "node:process"
 import { XMLParser } from "fast-xml-parser"
 import type { NewsItem } from "@shared/types"

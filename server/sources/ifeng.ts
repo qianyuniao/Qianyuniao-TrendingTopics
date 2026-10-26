@@ -1,3 +1,7 @@
+/**
+ * 信息流源：凤凰网
+ * 通过 defineSource 声明，返回统一的 NewsItem 列表
+ */
 import type { NewsItem } from "@shared/types"
 
 export default defineSource(async () => {

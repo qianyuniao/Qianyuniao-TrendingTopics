@@ -28,33 +28,15 @@ body {
 
 /* ---------- 暗色主题背景：透视网格 + 紫蓝光晕 ---------- */
 /* 两层均为固定定位的 body 伪元素，z-index 为负，不会拦截任何交互 */
-/* 光晕层：左上紫光 + 底部微蓝，构成整体的暗紫基调 */
+/* 光晕层：左上紫光 + 底部微蓝（椭圆光晕）——已移除，会遮挡看板内容 */
 html.dark body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 58% 46% at 16% 18%, rgba(124, 58, 237, 0.34), transparent 70%),
-    radial-gradient(ellipse 70% 55% at 52% 120%, rgba(56, 130, 246, 0.18), transparent 72%);
+  content: none;
 }
 
-/* 网格层：正交网格经 rotateX 压出透视，scale 补偿透视后的收缩，mask 让远处淡出 */
+/* 网格层：透视网格——已关闭，压在看板下方影响可读性
+   如需恢复，把 content 改回 "" 并保留下方声明即可 */
 html.dark body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    linear-gradient(to right, rgba(129, 140, 248, 0.18) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(129, 140, 248, 0.18) 1px, transparent 1px);
-  background-size: 76px 76px;
-  transform: perspective(340px) rotateX(64deg) scale(2.4);
-  transform-origin: 50% 100%;
-  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 64%);
-  mask-image: linear-gradient(to top, #000 0%, transparent 64%);
+  content: none;
 }
 
 button:disabled {
@@ -175,4 +157,39 @@ button:disabled {
   .meteor-ring:focus-within::after {
     animation: none;
   }
+}
+
+/* ---------- Apple 风格全局打磨 ---------- */
+
+/* 文本选区：采用主题强调色的浅色叠层，阅读时高亮更柔和 */
+::selection {
+  background-color: color-mix(in srgb, var(--primary, #06b6d4) 28%, transparent);
+  color: inherit;
+}
+
+/* 键盘可访问性：焦点环使用主题强调色 + 柔和外发光，
+   仅对键盘聚焦（:focus-visible）显示，鼠标点击不触发，符合 Apple HIG */
+:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--primary, #06b6d4) 70%, white 0%);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* 移动端去除点击高亮方块，点击反馈交由组件自身的 active 动效承担 */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* 锚点 / 程序化滚动更顺滑（尊重用户的减少动效偏好） */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* 让毛玻璃滚动容器在暗色下维持一致的细滚动条 */
+.os-scrollbar {
+  --os-handle-border-radius: 9999px;
 }

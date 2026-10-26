@@ -1,3 +1,7 @@
+/**
+ * 鉴权中间件：校验 Authorization 里的 JWT，把用户信息挂到 event.context.user
+ * 未配置 JWT_SECRET 等环境变量时标记 disabledLogin，看板以「免登录」模式运行
+ */
 import process from "node:process"
 import { jwtVerify } from "jose"
 

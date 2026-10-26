@@ -1,3 +1,7 @@
+/**
+ * 热榜平台源：米游社 —— 米游社游戏公告/活动/资讯
+ * 返回该平台的实时榜单条目，由 server/hotboard/registry.ts 统一调度
+ */
 import type { HotboardItem } from "@shared/hotboard"
 import { httpGet } from "../http"
 import { getTime } from "../time"

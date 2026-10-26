@@ -1,30 +1,29 @@
-import { Buffer } from "node:buffer"
+/**
+ * 信息流源：联合早报 —— 官网即时新闻
+ * 原抓取的第三方镜像站 zaochenbao.com 已失效（超时），改抓官网列表页；
+ * 文章链接形如 /news/china/story20261024-9888646，日期藏在 storyYYYYMMDD 中
+ */
 import * as cheerio from "cheerio"
-import iconv from "iconv-lite"
 import type { NewsItem } from "@shared/types"
 
 export default defineSource(async () => {
-  const response: ArrayBuffer = await myFetch("https://www.zaochenbao.com/realtime/", {
-    responseType: "arrayBuffer",
-  })
-  const base = "https://www.zaochenbao.com"
-  const utf8String = iconv.decode(Buffer.from(response), "gb2312")
-  const $ = cheerio.load(utf8String)
-  const $main = $("div.list-block>a.item")
+  const base = "https://www.zaobao.com.sg"
+  const html: string = await myFetch(`${base}/realtime/china`, { responseType: "text" })
+  const $ = cheerio.load(html)
   const news: NewsItem[] = []
-  $main.each((_, el) => {
-    const a = $(el)
-    const url = a.attr("href")
-    const title = a.find(".eps")?.text()
-    const date = a.find(".pdt10")?.text().replace(/-\s/g, " ")
-    if (url && title && date) {
-      news.push({
-        url: base + url,
-        title,
-        id: url,
-        pubDate: parseRelativeDate(date, "Asia/Shanghai").valueOf(),
-      })
-    }
+  const seen = new Set<string>()
+  $("a[href*='/news/']").each((_, el) => {
+    const href = $(el).attr("href")
+    const title = $(el).text().trim().replace(/\s+/g, " ")
+    if (!href || title.length < 8 || seen.has(href) || news.length >= 40) return
+    seen.add(href)
+    const date = /story(\d{8})-/.exec(href)?.[1]
+    news.push({
+      id: href,
+      title,
+      url: base + href,
+      pubDate: date ? tranformToUTC(date, "YYYYMMDD") : undefined,
+    })
   })
-  return news.sort((m, n) => n.pubDate! > m.pubDate! ? 1 : -1)
+  return news
 })

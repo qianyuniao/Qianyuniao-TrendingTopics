@@ -55,30 +55,44 @@ export const HOTBOARD_CATEGORIES = {
   科技开发: ["github", "hackernews", "juejin", "csdn", "cto51", "v2ex", "linuxdo", "nodeseek", "hellogithub", "hostloc", "ithome", "geekpark", "ifanr", "dgtle", "pojie52"],
   财经资讯: ["kr36", "huxiu"],
   新闻资讯: ["nytimes", "todayinhistory", "weatheralarm", "earthquake"],
-  影视娱乐: ["bilibili", "douyin", "kuaishou", "acfun", "iqiyi", "haokan", "xiaohongshu", "channels"],
+  影视娱乐: ["bilibili", "douyin", "kuaishou", "acfun", "iqiyi", "haokan", "xiaohongshu", "channels", "tencent", "pptv", "huya", "douyu"],
   游戏社区: ["ngabbs", "lol", "miyoushe", "gameres", "yystv"],
   社交阅读: ["douban", "tieba", "jianshu", "guokr", "newsmth", "weread", "sspai"],
   体育社区: ["hupu"],
 } satisfies Record<string, string[]>
 
 /**
- * 短视频平台集合：用于「短视频」聚合看板
- * （抖音 / 快手 / 哔哩哔哩 / AcFun）
+ * 视频平台集合：用于「视频」聚合看板
+ * 覆盖短视频（抖音 / 快手 / B 站 / AcFun / 小红书）、
+ * 长视频（爱奇艺 / 好看视频 / PP视频）与游戏直播（虎牙 / 斗鱼）
  */
-export const SHORT_VIDEO_PLATFORM_IDS = ["douyin", "kuaishou", "bilibili", "acfun", "iqiyi", "haokan", "xiaohongshu"] as const
+export const VIDEO_PLATFORM_IDS = [
+  "douyin",
+  "kuaishou",
+  "bilibili",
+  "acfun",
+  "xiaohongshu",
+  "channels",
+  "tencent",
+  "iqiyi",
+  "haokan",
+  "pptv",
+  "huya",
+  "douyu",
+] as const
 
-const SHORT_VIDEO_PLATFORM_SET: ReadonlySet<string> = new Set(SHORT_VIDEO_PLATFORM_IDS)
+const VIDEO_PLATFORM_SET: ReadonlySet<string> = new Set(VIDEO_PLATFORM_IDS)
 
-export function isShortVideoPlatform(id: string) {
-  return SHORT_VIDEO_PLATFORM_SET.has(id)
+export function isVideoPlatform(id: string) {
+  return VIDEO_PLATFORM_SET.has(id)
 }
 
 /**
- * 短视频平台官网地址
+ * 视频平台官网地址
  * 平台列表接口（/api/hotboard）只返回 id / name / desc / options，不含官网；
- * 且 acfun / haokan / xiaohongshu 没有对应的 sources 定义，故在此单独维护。
+ * 且 acfun / haokan / xiaohongshu 等没有对应的 sources 定义，故在此单独维护。
  */
-export const SHORT_VIDEO_PLATFORM_HOMES: Record<string, string> = {
+export const VIDEO_PLATFORM_HOMES: Record<string, string> = {
   douyin: "https://www.douyin.com",
   kuaishou: "https://www.kuaishou.com",
   bilibili: "https://www.bilibili.com",
@@ -86,6 +100,11 @@ export const SHORT_VIDEO_PLATFORM_HOMES: Record<string, string> = {
   iqiyi: "https://www.iqiyi.com",
   haokan: "https://www.haokan.baidu.com",
   xiaohongshu: "https://www.xiaohongshu.com",
+  channels: "https://channels.weixin.qq.com",
+  tencent: "https://v.qq.com",
+  pptv: "https://www.pptv.com",
+  huya: "https://www.huya.com",
+  douyu: "https://www.douyu.com",
 }
 
 export const ALL_CATEGORY = "全部"

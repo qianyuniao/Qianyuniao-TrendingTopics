@@ -1,3 +1,6 @@
+/**
+ * 看板元数据的底层 atom：保存栏目→源的映射，并负责本地持久化与云端同步
+ */
 import type { PrimitiveAtom } from "jotai"
 import type { FixedColumnID, PrimitiveMetadata, SourceID } from "@shared/types"
 import type { Update } from "./types"

@@ -1,3 +1,7 @@
+/**
+ * 热榜平台源：好看视频 —— 好看视频热播榜
+ * 返回该平台的实时榜单条目，由 server/hotboard/registry.ts 统一调度
+ */
 import { load } from "cheerio"
 import type { HotboardItem } from "@shared/hotboard"
 import { toHttps } from "../html"

@@ -1,3 +1,7 @@
+/**
+ * 信息流源：虎扑
+ * 通过 defineSource 声明，返回统一的 NewsItem 列表
+ */
 interface HotItem {
   id: string
   title: string

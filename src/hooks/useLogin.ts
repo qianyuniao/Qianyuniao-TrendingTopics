@@ -1,3 +1,6 @@
+/**
+ * 登录态管理：读取本地 token、发起 GitHub OAuth 登录与退出
+ */
 const userAtom = atomWithStorage<{
   name?: string
   avatar?: string

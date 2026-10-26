@@ -625,6 +625,30 @@
     "color": "orange",
     "interval": 120000
   },
+  "netease": {
+    "name": "网易新闻",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://news.163.com",
+    "color": "red",
+    "interval": 600000
+  },
+  "chinanewsRealtime": {
+    "title": "滚动要闻",
+    "name": "中国新闻网",
+    "type": "realtime",
+    "home": "https://www.chinanews.com",
+    "color": "blue",
+    "interval": 120000
+  },
+  "huanqiuRealtime": {
+    "title": "滚动要闻",
+    "name": "环球网",
+    "type": "realtime",
+    "home": "https://www.huanqiu.com",
+    "color": "rose",
+    "interval": 120000
+  },
   "nature": {
     "title": "Nature 最新论文",
     "name": "Nature",
@@ -1076,6 +1100,142 @@
     "color": "lime",
     "interval": 3600000
   },
+  "stats_csrc": {
+    "title": "市场统计",
+    "name": "证监会统计信息",
+    "desc": "中国证监会资本市场统计信息（融资、投资者数量等）",
+    "home": "http://www.csrc.gov.cn/csrc/c100077/common_list.shtml",
+    "color": "blue",
+    "interval": 1800000
+  },
+  "stats_ndrc": {
+    "title": "价格数据",
+    "name": "价格监测",
+    "desc": "国家发展改革委价格监测分析与重要商品价格数据",
+    "home": "https://www.ndrc.gov.cn/fgsj/",
+    "color": "rose",
+    "interval": 1800000
+  },
+  "stats_moe": {
+    "title": "教育事业",
+    "name": "教育统计",
+    "desc": "教育部教育事业发展统计公报与数据",
+    "home": "http://www.moe.gov.cn/jyb_sjzl/",
+    "color": "violet",
+    "interval": 3600000
+  },
+  "stats_mofcom": {
+    "title": "商务运行",
+    "name": "商务统计数据",
+    "desc": "商务部国内贸易与对外贸易统计数据",
+    "home": "https://www.mofcom.gov.cn/zwgk/tjsj/",
+    "color": "amber",
+    "interval": 1800000
+  },
+  "stats_moa": {
+    "title": "农业生产",
+    "name": "农业数据",
+    "desc": "农业农村部农业生产、农产品价格等数据发布",
+    "home": "https://www.moa.gov.cn/",
+    "color": "emerald",
+    "interval": 1800000
+  },
+  "stats_mnr": {
+    "title": "资源调查",
+    "name": "自然资源数据",
+    "desc": "自然资源部调查监测与国土空间数据发布",
+    "home": "https://www.mnr.gov.cn/sj/",
+    "color": "teal",
+    "interval": 1800000
+  },
+  "stats_mva": {
+    "title": "优抚安置",
+    "name": "退役军人事务数据",
+    "desc": "退役军人事务部政策落实与统计数据发布",
+    "home": "https://www.mva.gov.cn/",
+    "color": "orange",
+    "interval": 3600000
+  },
+  "stats_mem": {
+    "title": "安全生产",
+    "name": "应急管理动态",
+    "desc": "应急管理部安全生产与自然灾害统计数据发布",
+    "home": "https://www.mem.gov.cn/xw/",
+    "color": "red",
+    "interval": 1800000
+  },
+  "stats_nhsa": {
+    "title": "医疗保障",
+    "name": "医保统计信息",
+    "desc": "国家医疗保障局医保统计与基金运行信息",
+    "home": "https://www.nhsa.gov.cn/col/col7/index.html",
+    "color": "cyan",
+    "interval": 1800000
+  },
+  "stats_sasac": {
+    "title": "国资监管",
+    "name": "国资国企数据",
+    "desc": "国务院国资委国有企业经营与监管统计数据",
+    "home": "http://www.sasac.gov.cn/n2588025/n2588129/index.html",
+    "color": "indigo",
+    "interval": 1800000
+  },
+  "stats_tax": {
+    "title": "税收数据",
+    "name": "税务统计信息",
+    "desc": "国家税务总局税收统计与发票数据发布",
+    "home": "http://www.chinatax.gov.cn/chinatax/n810341/n810825/index.html",
+    "color": "rose",
+    "interval": 1800000
+  },
+  "stats_cma": {
+    "title": "气象服务",
+    "name": "气象数据",
+    "desc": "中国气象局气象监测与预报服务数据发布",
+    "home": "https://www.cma.gov.cn/",
+    "color": "sky",
+    "interval": 1800000
+  },
+  "stats_lswz": {
+    "title": "粮食安全",
+    "name": "粮食储备数据",
+    "desc": "国家粮食和物资储备局粮食收储与市场数据发布",
+    "home": "https://www.lswz.gov.cn/",
+    "color": "amber",
+    "interval": 1800000
+  },
+  "stats_mee": {
+    "title": "环境质量",
+    "name": "生态环境统计",
+    "desc": "生态环境部生态环境统计与质量公报数据",
+    "home": "https://www.mee.gov.cn/hjzl/",
+    "color": "emerald",
+    "interval": 1800000
+  },
+  "stats_nsfc": {
+    "title": "基金资助",
+    "name": "科学基金数据",
+    "desc": "国家自然科学基金委项目资助与统计信息",
+    "home": "https://www.nsfc.gov.cn/",
+    "color": "indigo",
+    "interval": 1800000
+  },
+  "stats_cnipa": {
+    "title": "专利商标",
+    "name": "知识产权数据",
+    "desc": "国家知识产权局专利与商标统计发布",
+    "home": "https://www.cnipa.gov.cn/",
+    "color": "violet",
+    "interval": 1800000
+  },
+  "stats_eastmoney": {
+    "title": "财经数据",
+    "name": "东方财富数据",
+    "desc": "东方财富网财经要闻与市场数据资讯",
+    "home": "https://finance.eastmoney.com/",
+    "color": "rose",
+    "interval": 120000
+  },
   "policy_nhsa": {
     "title": "最新政策",
     "name": "国家医疗保障局",
@@ -1268,6 +1428,30 @@
     "color": "yellow",
     "interval": 1800000
   },
+  "policy_neac": {
+    "title": "民族事务",
+    "name": "国家民委",
+    "desc": "国家民族事务委员会政策发布",
+    "home": "https://www.neac.gov.cn/",
+    "color": "orange",
+    "interval": 1800000
+  },
+  "policy_ncha": {
+    "title": "文物保护",
+    "name": "国家文物局",
+    "desc": "国家文物局文物保护与考古政策",
+    "home": "http://www.ncha.gov.cn/",
+    "color": "amber",
+    "interval": 1800000
+  },
+  "policy_nia": {
+    "title": "出入境管理",
+    "name": "国家移民管理局",
+    "desc": "国家移民管理局出入境与移民管理政策",
+    "home": "https://www.nia.gov.cn/",
+    "color": "sky",
+    "interval": 1800000
+  },
   "policy_nea": {
     "title": "能源动态",
     "name": "国家能源局",
@@ -1450,6 +1634,33 @@
     "desc": "生物学预印本平台最新论文",
     "home": "https://www.biorxiv.org/",
     "color": "lime",
+    "interval": 3600000
+  },
+  "gut": {
+    "title": "最新论文",
+    "name": "Gut",
+    "desc": "Gut 期刊最新发表论文（胃肠病学与肝脏病学）",
+    "column": "gut",
+    "home": "https://gut.bmj.com",
+    "color": "teal",
+    "interval": 3600000
+  },
+  "natsustain": {
+    "title": "最新论文",
+    "name": "Nature Sustainability",
+    "desc": "Nature Sustainability 最新发表论文（可持续发展）",
+    "column": "natsustain",
+    "home": "https://www.nature.com/natsustain",
+    "color": "green",
+    "interval": 3600000
+  },
+  "cancers": {
+    "title": "最新论文",
+    "name": "Cancers",
+    "desc": "Cancers 期刊最新发表论文（肿瘤学）",
+    "column": "cancers",
+    "home": "https://www.mdpi.com/journal/cancers",
+    "color": "rose",
     "interval": 3600000
   },
   "medrxiv": {

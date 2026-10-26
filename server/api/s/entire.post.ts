@@ -1,3 +1,7 @@
+/**
+ * POST /api/s/entire —— 批量取多个源的缓存
+ * 首页首屏一次性拿数十个源，逐个请求 /api/s 太慢，这里只读缓存不做实时抓取
+ */
 import type { SourceID, SourceResponse } from "@shared/types"
 import { getCacheTable } from "#/database/cache"
 

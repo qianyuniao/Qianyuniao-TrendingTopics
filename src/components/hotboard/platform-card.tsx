@@ -1,14 +1,18 @@
+/**
+ * 热榜平台卡片：展示单个平台的榜单条目与刷新 / 跳转操作
+ */
 import { Link } from "@tanstack/react-router"
 import { useInView } from "framer-motion"
 import type { HotboardPlatform } from "@shared/hotboard"
 import { categoryOf, platformColor } from "@shared/hotboard"
 import type { SourceID } from "@shared/types"
 import { BoardRow } from "./board-row"
+import { hotboardRow } from "./row-data"
 import { BoardScrollArea } from "./board-scroll-area"
 import { CardActions } from "./card-actions"
 import { PlatformIcon } from "./platform-icon"
 import type { SortableCardProps } from "./sortable-board"
-import { BOARD_CARD_BASE } from "~/utils"
+import { boardCardClass } from "~/utils"
 
 /**
  * 单个平台的热榜卡片：进入视口才拉取数据，支持关键词过滤与手动刷新
@@ -69,13 +73,7 @@ export function PlatformCard({
   return (
     <div
       ref={bindRef}
-      className={$(
-        BOARD_CARD_BASE,
-        "h-500px",
-        "gap-3",
-        `gp-${color}`,
-        sortable?.isDragging && "op-50",
-      )}
+      className={boardCardClass(color, sortable?.isDragging)}
     >
       <div className="flex items-center gap-2 min-w-0">
         <PlatformIcon id={platform.id} name={platform.name} />
@@ -110,7 +108,7 @@ export function PlatformCard({
           {items.map((item, index) => (
             <BoardRow
               key={item.id ?? index}
-              item={item}
+              row={hotboardRow(item)}
               index={index}
               color={color}
               variant={rowVariant}

@@ -2,13 +2,15 @@ import type { FixedColumnID } from "@shared/types"
 import { useTitle } from "react-use"
 import { Dnd } from "./dnd"
 import { NavBar } from "~/components/layout/navbar"
-import { PortalLinks, portalGroupsOf } from "~/components/common/portal-links"
+import { PortalLinks } from "~/components/common/portal-links"
+import { portalGroupsOf } from "~/components/common/portal-groups"
+import { BoardToolbar } from "~/components/hotboard/board-toolbar"
 import { currentColumnIDAtom } from "~/atoms"
 
-/** 需要在页头展示官网导航的栏目及其渐变色 */
-const COLUMN_PORTALS: Partial<Record<FixedColumnID, { from: string, to: string, desc: string }>> = {
-  hottest: { from: "#fb923c", to: "#f43f5e", desc: "全网实时热榜聚合，跨平台同步更新" },
-  realtime: { from: "#34d399", to: "#22d3ee", desc: "实时更新的资讯与财经快讯流" },
+/** 需要在页头展示官网导航的栏目及其主题色（与各广场页头保持一致） */
+const COLUMN_PORTALS: Partial<Record<FixedColumnID, { from: string, to: string, desc: string, color: string }>> = {
+  hottest: { from: "#fb923c", to: "#f43f5e", desc: "全网实时热榜聚合，跨平台同步更新", color: "orange" },
+  realtime: { from: "#34d399", to: "#22d3ee", desc: "实时更新的资讯与财经快讯流", color: "emerald" },
 }
 
 export function Column({ id }: { id: FixedColumnID }) {
@@ -28,27 +30,19 @@ export function Column({ id }: { id: FixedColumnID }) {
         <NavBar />
       </div>
       {portal && (
-        <div className={$(
-          "flex flex-col gap-3 rounded-2xl p-4 mx-2 sm:mx-3 mb-4 transition-all",
-          "bg-base bg-op-85!",
-          "panel-outline meteor-ring",
-        )}
+        <BoardToolbar
+          className="mx-2 sm:mx-3 mb-4"
+          color={portal.color}
+          title={column.name}
+          badge={`${column.sources.length} 个数据源`}
+          hint={portal.desc}
         >
-          <div className="flex flex-wrap items-center gap-3">
-            <h1 className="text-2xl font-bold">{column.name}</h1>
-            <span className={$("text-xs px-1.5 py-0.5 rounded-full bg-neutral-400/10 whitespace-nowrap", "color-primary")}>
-              {`${column.sources.length} 个数据源`}
-            </span>
-            <span className="text-xs op-70">{portal.desc}</span>
-          </div>
-          <div className="flex flex-wrap gap-2 text-sm">
-            <PortalLinks
-              groups={portalGroupsOf("来源官网", column.sources, 30)}
-              from={portal.from}
-              to={portal.to}
-            />
-          </div>
-        </div>
+          <PortalLinks
+            groups={portalGroupsOf("来源官网", column.sources, 30)}
+            from={portal.from}
+            to={portal.to}
+          />
+        </BoardToolbar>
       )}
       {id === currentColumnID && <Dnd />}
     </>

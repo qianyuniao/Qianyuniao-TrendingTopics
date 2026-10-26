@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ShortvideoRouteImport } from './routes/shortvideo'
 import { Route as PoliciesRouteImport } from './routes/policies'
 import { Route as JournalsRouteImport } from './routes/journals'
+import { Route as FocusRouteImport } from './routes/focus'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as HotboardIndexRouteImport } from './routes/hotboard/index'
@@ -31,6 +32,11 @@ const PoliciesRoute = PoliciesRouteImport.update({
 const JournalsRoute = JournalsRouteImport.update({
   id: '/journals',
   path: '/journals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FocusRoute = FocusRouteImport.update({
+  id: '/focus',
+  path: '/focus',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -62,6 +68,7 @@ const CColumnRoute = CColumnRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/focus': typeof FocusRoute
   '/journals': typeof JournalsRoute
   '/policies': typeof PoliciesRoute
   '/shortvideo': typeof ShortvideoRoute
@@ -72,6 +79,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/focus': typeof FocusRoute
   '/journals': typeof JournalsRoute
   '/policies': typeof PoliciesRoute
   '/shortvideo': typeof ShortvideoRoute
@@ -83,6 +91,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/focus': typeof FocusRoute
   '/journals': typeof JournalsRoute
   '/policies': typeof PoliciesRoute
   '/shortvideo': typeof ShortvideoRoute
@@ -95,6 +104,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/dashboard'
+    | '/focus'
     | '/journals'
     | '/policies'
     | '/shortvideo'
@@ -105,6 +115,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/dashboard'
+    | '/focus'
     | '/journals'
     | '/policies'
     | '/shortvideo'
@@ -115,6 +126,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/dashboard'
+    | '/focus'
     | '/journals'
     | '/policies'
     | '/shortvideo'
@@ -126,6 +138,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRoute
+  FocusRoute: typeof FocusRoute
   JournalsRoute: typeof JournalsRoute
   PoliciesRoute: typeof PoliciesRoute
   ShortvideoRoute: typeof ShortvideoRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/journals'
       fullPath: '/journals'
       preLoaderRoute: typeof JournalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/focus': {
+      id: '/focus'
+      path: '/focus'
+      fullPath: '/focus'
+      preLoaderRoute: typeof FocusRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -198,6 +218,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRoute,
+  FocusRoute: FocusRoute,
   JournalsRoute: JournalsRoute,
   PoliciesRoute: PoliciesRoute,
   ShortvideoRoute: ShortvideoRoute,

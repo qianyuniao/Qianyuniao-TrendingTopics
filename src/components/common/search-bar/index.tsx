@@ -1,3 +1,6 @@
+/**
+ * 全局搜索栏（cmdk 命令面板）：按拼音 / 名称搜索数据源并直达
+ */
 import { Command } from "cmdk"
 import { useMount } from "react-use"
 import type { SourceID } from "@shared/types"

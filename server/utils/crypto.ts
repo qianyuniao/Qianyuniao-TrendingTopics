@@ -1,3 +1,8 @@
+/**
+ * 摘要计算
+ * 优先用运行时自带的 WebCrypto（Cloudflare Worker 支持 MD5），
+ * 不可用时回退到 md5 包，保证本地与线上行为一致
+ */
 import _md5 from "md5"
 import { subtle as _ } from "uncrypto"
 

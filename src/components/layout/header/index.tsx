@@ -1,7 +1,11 @@
+/**
+ * 页面顶栏：标题、整体刷新、下拉菜单与登录入口
+ */
 import { Link } from "@tanstack/react-router"
 import { useIsFetching } from "@tanstack/react-query"
 import type { SourceID } from "@shared/types"
 import { NavBar } from "../navbar"
+import { MobileNav } from "../mobile-nav"
 import { Menu } from "./menu"
 import { currentSourcesAtom, goToTopAtom } from "~/atoms"
 
@@ -60,10 +64,11 @@ export function Header() {
           </span>
         </Link>
       </span>
-      <span className="justify-self-center">
+      <span className="justify-self-center flex items-center gap-1">
         <span className="hidden md:(inline-block)">
           <NavBar />
         </span>
+        <MobileNav />
       </span>
       <span className="justify-self-end flex gap-2 items-center text-xl text-primary-600 dark:text-primary">
         <GoTop />

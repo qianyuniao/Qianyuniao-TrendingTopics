@@ -2,7 +2,7 @@
 
 一个自托管的**全网热点聚合看板**：把新闻热榜、短视频榜、顶级期刊 / 预印本、各国政府政策与官方统计数据，集中到同一个可拖拽的看板里。
 
-前后端同构部署，内置 **51 个热榜平台适配器**与 **176 个内容源**，离线可用（PWA），支持 GitHub 登录同步「关注」栏目。
+前后端同构部署，内置 **55 个热榜平台适配器**与 **199 个可用内容源**，离线可用（PWA），支持 GitHub 登录同步「关注」栏目。
 
 - 许可证：MIT
 - 环境要求：Node.js 18 及以上、pnpm 10
@@ -19,19 +19,19 @@
 
 ### 国家政策广场
 
-国务院及 49 个部委官网的政策、公文与解读，顶部可直达各部委官网。
+国务院及 52 个部委官网的政策、公文与解读，顶部可直达各部委官网。
 
 ![国家政策](docs/images/policies.png)
 
 ### 顶刊论文广场
 
-49 个顶级期刊与预印本平台，涵盖 Nature、Science、Cell 系顶刊与 JAMA、Lancet、bioRxiv 等。
+52 个顶级期刊与预印本平台，涵盖 Nature、Science、Cell 系顶刊与 JAMA、Lancet、bioRxiv 等。
 
 ![顶刊论文广场](docs/images/journals.png)
 
 ### 热搜广场
 
-51 个平台的热榜聚合，支持分类筛选、关键词搜索与自动刷新。
+55 个平台的热榜聚合，支持分类筛选、关键词搜索与自动刷新。
 
 ![热搜广场](docs/images/hotboard.png)
 
@@ -48,6 +48,7 @@
 - [部署](#部署)
 - [项目结构](#项目结构)
 - [数据源机制](#数据源机制)
+- [图标机制](#图标机制)
 - [缓存与数据一致性](#缓存与数据一致性)
 - [常见问题](#常见问题)
 - [许可证](#许可证)
@@ -58,12 +59,14 @@
 
 | 模块 | 路由 | 说明 | 源数量 |
 | --- | --- | --- | --- |
-| 热榜 | `/hotboard` | 51 个平台热榜聚合，支持分类筛选、关键词搜索、自动刷新倒计时 | 51 |
-| 短视频 | `/shortvideo` | 抖音 / 快手 / B 站 / AcFun / 爱奇艺 / 好看 / 小红书 | 7 || 最热 | `/c/hottest` | 跨平台综合热点榜 | 37 |
+| 热榜 | `/hotboard` | 55 个平台热榜聚合，支持分类筛选、关键词搜索、自动刷新倒计时 | 55 |
+| 短视频 | `/shortvideo` | 抖音 / 快手 / B 站 / AcFun / 爱奇艺 / 好看 / 小红书 | 7 |
+| 最热 | `/c/hottest` | 跨平台综合热点榜 | 37 |
 | 实时 | `/c/realtime` | 实时更新的资讯与财经快讯流 | 22 |
-| 顶刊广场 | `/journals` | Nature、Science、Cell 系顶刊，JAMA、Lancet、Neuron、Immunity、Cancer Cell，bioRxiv、medRxiv、JMLR 等 | 49 |
-| 政策广场 | `/policies` | 国务院及 49 个部委官网最新政策、公文与解读 | 49 |
+| 顶刊广场 | `/journals` | Nature、Science、Cell 系顶刊，JAMA、Lancet、Neuron、Immunity、Cancer Cell，bioRxiv、medRxiv、JMLR 等 | 52 |
+| 政策广场 | `/policies` | 国务院及 52 个部委官网最新政策、公文与解读 | 52 |
 | 统计数据看板 | `/dashboard` | 国家统计局、央行、财政部官方数据，外加国际权威统计机构入口 | 6 + 38 链接 |
+
 **其它能力**
 
 - **可拖拽看板**：卡片顺序持久化到 `localStorage`，基于 `@atlaskit/pragmatic-drag-and-drop`
@@ -166,11 +169,12 @@ pnpm start
 | `G_CLIENT_SECRET` | GitHub OAuth 应用密钥 | 无法完成登录回调 |
 | `JWT_SECRET` | 会话令牌签名密钥，启用登录时必填 | 无法签发令牌 |
 | `INIT_TABLE` | 首次启动是否建表，默认 true | 设为 false 跳过建表 |
-| `ENABLE_CACHE` | 是否启用数据库缓存，默认 true | 设为 false 每次实时抓取 || `HOTBOARD_CACHE_TTL` | 热榜内存缓存秒数，默认 60 | 使用默认值 |
+| `ENABLE_CACHE` | 是否启用数据库缓存，默认 true | 设为 false 每次实时抓取 |
+| `HOTBOARD_CACHE_TTL` | 热榜内存缓存秒数，默认 60 | 使用默认值 |
 | `PRODUCTHUNT_API_TOKEN` | Product Hunt API Token | 该卡片回退为 RSS |
-| `XIAOHONGSHU_COOKIE` | 小红书热榜 Cookie，含 a1、web_session 等 | 小红书热榜返回空 |
-| `XIAOHONGSHU_XS` / `XIAOHONGSHU_XT` | 小红书 web 接口签名头，缺失易返回 406 | 降级 |
-| `WEIXIN_CHANNELS_COOKIE` | 微信视频号热榜 Cookie，实验性 | 视频号热榜返回空 |
+| `XIAOHONGSHU_COOKIE` | 小红书官方热搜接口 Cookie（可选增强），含 a1、web_session 等 | 走免配置的公共聚合接口 |
+| `XIAOHONGSHU_XS` / `XIAOHONGSHU_XT` | 小红书官方接口签名头，仅配合 Cookie 使用 | 签名缺失时回退公共接口 |
+| `WEIXIN_CHANNELS_API_URL` | 自备的微信视频号榜单接口地址（官方无公开热榜 API） | 视频号仅展示官网入口 |
 | `HTTPS_PROXY` / `HTTP_PROXY` | 上游代理，`dev` 脚本已带 `--use-env-proxy` | 直连 |
 > 生产环境另可用 `NODE_USE_ENV_PROXY=1` 让 Node 原生 fetch 走代理。
 
@@ -186,7 +190,8 @@ pnpm start
 | `pnpm presource` | 仅重新生成 `sources.json`、`pinyin.json` 与站点图标 |
 | `pnpm typecheck` | 分别检查服务端与前端类型 |
 | `pnpm lint` | ESLint 检查，配合 `--fix` 自动修复 |
-| `pnpm test` | 运行 Vitest || `pnpm preview` | 以 Cloudflare Pages 预设构建并用 Wrangler 本地预览 |
+| `pnpm test` | 运行 Vitest |
+| `pnpm preview` | 以 Cloudflare Pages 预设构建并用 Wrangler 本地预览 |
 | `pnpm deploy` | 部署到 Cloudflare Pages |
 | `pnpm log` | 查看 Cloudflare Pages 部署日志 |
 | `pnpm release` | 基于 conventional commits 自动升版本并打 tag |
@@ -228,7 +233,10 @@ pnpm build && pnpm start
 │   └── nitro.ts        按环境变量切换部署预设与数据库连接器
 ├── scripts/            构建期脚本
 │   ├── favicon.ts      抓取各站点 favicon
-│   └── source.ts       由 pre-sources 生成 sources.json 与 pinyin.json├── shared/             前后端共享
+│   └── source.ts       由 pre-sources 生成 sources.json 与 pinyin.json
+├── public/             静态资源
+│   └── icons/          各平台 / 数据源的官方图标（219 个），按 id 命名
+├── shared/             前后端共享
 │   ├── pre-sources.ts  所有数据源的声明式定义（源头）
 │   ├── sources.json    构建期产物，勿手改
 │   ├── metadata.ts     栏目、配色、各广场列表
@@ -239,7 +247,8 @@ pnpm build && pnpm start
 │   ├── sources/        抓取器，一个文件即一个 source id
 │   ├── hotboard/       热榜平台适配器，共 51 个
 │   ├── utils/          抓取与解析工具
-│   └── database/       db0 缓存与用户表├── src/                前端
+│   └── database/       db0 缓存与用户表
+├── src/                前端
 │   ├── routes/         文件式路由
 │   ├── components/     看板卡片、布局、通用组件
 │   ├── hooks/          自定义 Hooks
@@ -284,8 +293,23 @@ server/getters.ts 自动 glob 收集 --> /api/s?id=<id> --> 前端卡片
 新增一个部门只需在 `policySources` 数组追加一项：
 
 ```ts
-{ id: "policy_xxx", name: "某某部", url: "https://www.example.gov.cn/zwgk/", mode: "container" }
+// 在 policySources 数组中追加一项
+const policySources = [
+  { id: "policy_xxx", name: "某某部", url: "https://www.example.gov.cn/zwgk/", mode: "container" },
+]
 ```
+
+---
+
+## 图标机制
+
+看板卡片与热榜平台的头像统一由 `src/components/hotboard/platform-icon.tsx` 渲染，取图规则：
+
+1. 优先取 `public/icons/<id>.png`，id 为数据源 id 或热榜平台 id
+2. 变体源（如 `v2ex-share`、`bilibili-ranking`）没有独立图标时，自动回退到主站图标（`v2ex`、`bilibili`）
+3. 都没有则显示名称首字母头像，保证卡片样式统一
+
+新增图标只需把一张方形 logo 存为 `public/icons/<id>.png`，无需改动代码；图标可点击直达对应官网。
 
 ---
 
@@ -309,7 +333,7 @@ server/getters.ts 自动 glob 收集 --> /api/s?id=<id> --> 前端卡片
 
 **部分数据源是空的？**
 
-小红书、微信视频号需要配置 Cookie；Product Hunt 需要 API Token；部分海外站点在特定网络下不可达。
+Product Hunt 需要 API Token；微信视频号官方未开放热榜接口（默认只展示官网入口，可自备接口通过 `WEIXIN_CHANNELS_API_URL` 接入）；部分海外站点在特定网络下不可达。小红书默认走公共聚合接口，配置 Cookie 可改取官方热搜榜。
 
 **如何新增一个数据源？**
 

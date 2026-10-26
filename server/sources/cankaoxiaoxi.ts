@@ -1,3 +1,7 @@
+/**
+ * 信息流源：参考消息
+ * 通过 defineSource 声明，返回统一的 NewsItem 列表
+ */
 interface Res {
   list: {
     data: {

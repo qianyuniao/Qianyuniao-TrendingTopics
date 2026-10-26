@@ -1,3 +1,6 @@
+/**
+ * 单张卡片的拖拽能力：包装 dnd-kit 的 useSortable，暴露绑定用的 ref
+ */
 import { draggable, dropTargetForElements } from "@atlaskit/pragmatic-drag-and-drop/element/adapter"
 import { combine } from "@atlaskit/pragmatic-drag-and-drop/combine"
 import { setCustomNativeDragPreview } from "@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview"

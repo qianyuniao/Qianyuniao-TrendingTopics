@@ -1,3 +1,7 @@
+/**
+ * GET / POST /api/me/sync —— 用户看板配置的云同步
+ * GET 取回上次保存的配置，POST 覆盖保存；仅在服务端配置了登录相关环境变量时可用
+ */
 import process from "node:process"
 import { UserTable } from "#/database/user"
 

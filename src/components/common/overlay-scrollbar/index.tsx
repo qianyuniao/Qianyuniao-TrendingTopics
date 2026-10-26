@@ -1,3 +1,6 @@
+/**
+ * 自定义滚动条容器：用 OverlayScrollbars 替换原生滚动条，保证卡片内滚动样式统一
+ */
 import type { HTMLProps, PropsWithChildren } from "react"
 import { defu } from "defu"
 import { useMount } from "react-use"

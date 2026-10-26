@@ -1,15 +1,6 @@
-import { sources } from "@shared/sources"
+import type { PortalLinkGroup, PortalLinkItem } from "./portal-groups"
 
-export interface PortalLinkItem {
-  label: string
-  href: string
-}
-
-export interface PortalLinkGroup {
-  /** 分组标题，如「短视频平台官网」 */
-  label: string
-  links: PortalLinkItem[]
-}
+export type { PortalLinkGroup, PortalLinkItem }
 
 interface GradientStyle {
   backgroundImage: string
@@ -66,14 +57,4 @@ export function PortalLinks({ groups, from, to }: {
       ))}
     </>
   )
-}
-
-/** 依据 source id 列表生成「官网」分组，自动跳过没有官网地址的源 */
-export function portalGroupsOf(label: string, ids: readonly string[], limit?: number): PortalLinkGroup[] {
-  const links = ids
-    .map(id => sources[id as keyof typeof sources] as { name?: string, home?: string } | undefined)
-    .filter((s): s is { name: string, home: string } => !!s?.home && !!s.name)
-    .map(s => ({ label: s.name, href: s.home }))
-    .slice(0, limit ?? Number.POSITIVE_INFINITY)
-  return links.length ? [{ label, links }] : []
 }

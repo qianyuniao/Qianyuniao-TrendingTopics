@@ -1,3 +1,7 @@
+/**
+ * 热榜平台源：51CTO —— 51CTO 推荐榜
+ * 返回该平台的实时榜单条目，由 server/hotboard/registry.ts 统一调度
+ */
 import type { HotboardItem } from "@shared/hotboard"
 import md5 from "md5"
 import { httpGet } from "../http"

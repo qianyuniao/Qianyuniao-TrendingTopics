@@ -144,6 +144,9 @@ export const columns = {
   plosone: { zh: "PLOS ONE" },
   plosbio: { zh: "PLOS Biology" },
   jmlr: { zh: "JMLR" },
+  gut: { zh: "Gut" },
+  natsustain: { zh: "Nature Sustainability" },
+  cancers: { zh: "Cancers" },
   focus: {
     zh: "关注",
   },
@@ -155,9 +158,11 @@ export const columns = {
   },
 } as const
 
-export const fixedColumnIds = ["focus", "hottest", "realtime", "nature", "science", "cell", "pnas", "nejm", "arxiv", "sciadv", "elife", "bmj", "natcomm", "natmed", "natbiotech", "natgen", "natphys", "natchem", "natmat", "natneuro", "natclimate", "natmethods", "natmicrobiol", "natplants", "natrevcancer", "natrevneuro", "pubmed", "webofscience", "sciencedirect", "springerlink", "wiley", "ebsco", "ieee", "iopscience", "asce", "reaxys", "sage", "psycinfo", "jama", "lancet", "neuron", "immunity", "cancercell", "cellreports", "natrevgen", "natrevdrug", "biorxiv", "medrxiv", "preprints", "plosone", "plosbio", "jmlr"] as const satisfies Partial<ColumnID>[]
+export const fixedColumnIds = ["focus", "hottest", "realtime", "nature", "science", "cell", "pnas", "nejm", "arxiv", "sciadv", "elife", "bmj", "natcomm", "natmed", "natbiotech", "natgen", "natphys", "natchem", "natmat", "natneuro", "natclimate", "natmethods", "natmicrobiol", "natplants", "natrevcancer", "natrevneuro", "pubmed", "webofscience", "sciencedirect", "springerlink", "wiley", "ebsco", "ieee", "iopscience", "asce", "reaxys", "sage", "psycinfo", "jama", "lancet", "neuron", "immunity", "cancercell", "cellreports", "natrevgen", "natrevdrug", "biorxiv", "medrxiv", "preprints", "plosone", "plosbio", "jmlr", "gut", "natsustain", "cancers"] as const satisfies Partial<ColumnID>[]
 /** 顶刊广场包含的全部期刊 column（用于顶刊菜单高亮与广场页渲染） */
-export const journalColumnIds = ["nature", "science", "cell", "pnas", "nejm", "arxiv", "sciadv", "elife", "bmj", "natcomm", "natmed", "natbiotech", "natgen", "natphys", "natchem", "natmat", "natneuro", "natclimate", "natmethods", "natmicrobiol", "natplants", "natrevcancer", "natrevneuro", "pubmed", "webofscience", "sciencedirect", "springerlink", "wiley", "ebsco", "ieee", "iopscience", "asce", "reaxys", "sage", "psycinfo", "jama", "lancet", "neuron", "immunity", "cancercell", "cellreports", "natrevgen", "natrevdrug", "biorxiv", "medrxiv", "preprints", "plosone", "plosbio", "jmlr"] as const satisfies ColumnID[]
+export const journalColumnIds = ["nature", "science", "cell", "pnas", "nejm", "arxiv", "sciadv", "elife", "bmj", "natcomm", "natmed", "natbiotech", "natgen", "natphys", "natchem", "natmat", "natneuro", "natclimate", "natmethods", "natmicrobiol", "natplants", "natrevcancer", "natrevneuro", "pubmed", "webofscience", "sciencedirect", "springerlink", "wiley", "ebsco", "ieee", "iopscience", "asce", "reaxys", "sage", "psycinfo", "jama", "lancet", "neuron", "immunity", "cancercell", "cellreports", "natrevgen", "natrevdrug", "biorxiv", "medrxiv", "preprints", "plosone", "plosbio", "jmlr",
+  // 消化 / 可持续发展 / 肿瘤学顶刊
+  "gut", "natsustain", "cancers"] as const satisfies ColumnID[]
 export const journalSet = new Set<string>(journalColumnIds)
 
 /** 政策广场包含的全部职能部门政策源 id（用于政策菜单高亮与广场页渲染） */
@@ -199,6 +204,9 @@ export const policyColumnIds = [
   "policy_cma",
   "policy_lswz",
   "policy_nea",
+  "policy_neac",
+  "policy_ncha",
+  "policy_nia",
   "policy_forestry",
   "policy_cdpf",
   // 基础设施与行业监管
@@ -221,12 +229,33 @@ export const policySet = new Set<string>(policyColumnIds)
 
 /** 统计数据看板展示的数据栏目 id（国内官方平台 + 国际权威统计机构） */
 export const statsColumnIds = [
+  // 国家统计局 / 央行 / 财政部
   "policy_stats",
   "stats_sjjd",
   "stats_tjgb",
   "stats_pbc",
   "stats_pbc2",
   "stats_mof",
+  // 各部委数据统计栏目
+  "stats_csrc",
+  "stats_ndrc",
+  "stats_moe",
+  "stats_mofcom",
+  "stats_moa",
+  "stats_mnr",
+  "stats_mva",
+  "stats_mem",
+  "stats_nhsa",
+  "stats_sasac",
+  "stats_tax",
+  "stats_cma",
+  "stats_lswz",
+  "stats_mee",
+  // 科研 / 知识产权 / 财经数据平台
+  "stats_nsfc",
+  "stats_cnipa",
+  "stats_eastmoney",
+  // 国际权威统计机构
   "intl_wb",
 ] as const satisfies SourceID[]
 export const statsSet = new Set<string>(statsColumnIds)

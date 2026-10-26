@@ -1,3 +1,6 @@
+/**
+ * 版本检查：发现服务端有新版本时提示用户刷新页面
+ */
 import { useBeforeUnload, useMount } from "react-use"
 
 const KEY = "unload-time"
