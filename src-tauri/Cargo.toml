@@ -1,0 +1,24 @@
+[package]
+name = "qianyuniao-trendingtopics"
+version = "0.0.40"
+description = "千鸟热点看板桌面端"
+authors = ["qianyuniao"]
+edition = "2021"
+rust-version = "1.77"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+# Tauri 桌面外壳；protocol-asset 允许 webview 加载本地资源
+tauri = { version = "2", features = [] }
+url = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true

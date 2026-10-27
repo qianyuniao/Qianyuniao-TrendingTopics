@@ -1,0 +1,4 @@
+# 为 x86_64-pc-windows-gnu 目标指定 MinGW-w64 的 gcc 作为链接器。
+# 若改用 MSVC 工具链（默认 x86_64-pc-windows-msvc），此段可忽略/删除。
+[target.x86_64-pc-windows-gnu]
+linker = "gcc"

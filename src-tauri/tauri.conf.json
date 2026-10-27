@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "千鸟热点看板",
+  "version": "0.0.40",
+  "identifier": "com.qianyuniao.trendingtopics",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:3000",
+    "beforeBuildCommand": "npm run build && node scripts/prepare-tauri.mjs",
+    "frontendDist": "../dist/output/public"
+  },
+  "app": {
+    "windows": [],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": [
+      "icons/icon.ico",
+      "icons/icon.png"
+    ],
+    "resources": {
+      "../dist/output/server": "server",
+      "../dist/output/public": "public",
+      "binaries/node.exe": "node.exe"
+    },
+    "shortDescription": "千鸟热点看板 - 多平台热点聚合桌面应用",
+    "longDescription": "基于 Tauri + Nitro 的全平台热点聚合看板桌面客户端。"
+  }
+}

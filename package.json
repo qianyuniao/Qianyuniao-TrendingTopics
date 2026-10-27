@@ -21,7 +21,10 @@
     "release": "bumpp",
     "prepare": "simple-git-hooks",
     "log": "wrangler pages deployment tail --project-name qianyuniao-trendingtopics",
-    "test": "vitest -c vitest.config.ts"
+    "test": "vitest -c vitest.config.ts",
+    "tauri": "tauri",
+    "prepare:tauri": "node scripts/prepare-tauri.mjs",
+    "build:desktop": "npm run build && tauri build"
   },
   "dependencies": {
     "@atlaskit/pragmatic-drag-and-drop": "^1.7.7",
@@ -96,7 +99,8 @@
     "vitest": "^4.0.18",
     "workbox-build": "^7.4.0",
     "workbox-window": "^7.4.0",
-    "wrangler": "4.14.1"
+    "wrangler": "4.14.1",
+    "@tauri-apps/cli": "^2.3.0"
   },
   "pnpm": {
     "patchedDependencies": {
