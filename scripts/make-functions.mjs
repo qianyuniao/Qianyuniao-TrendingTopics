@@ -3,16 +3,20 @@
 //
 // Cloudflare Pages (Git-connected) only runs Pages Functions from a `functions/`
 // directory in the build output — a single `_worker.js` file is NOT picked up by
-// Git builds (that mode is for `wrangler pages deploy`). So we drop a
-// `functions/[[path]].js` that forwards every request to the Nitro worker.
+// Git builds. So we emit `functions/[[path]].js`.
 //
-// The Vite/Nitro build (with CF_PAGES=1) emits the worker as a *directory*:
-//   dist/output/public/_worker.js/index.js  (+ chunks/)
-// We must import the entry FILE (`_worker.js/index.js`), NOT the directory — a
-// directory import fails esbuild and breaks the Pages Functions build.
-import { existsSync, mkdirSync, writeFileSync } from "node:fs"
+// IMPORTANT: we PRE-BUNDLE the Nitro worker (rollup) into that single file so it
+// is fully self-contained. If instead we `import` the worker (e.g.
+// `../_worker.js/index.js`), Cloudflare's own Pages Functions esbuild step tries
+// to resolve/bundle the huge Nitro worker and the build fails. Pre-bundling here
+// avoids that entirely.
+//
+// The Vite/Nitro build (with CF_PAGES=1, set automatically by Cloudflare Pages)
+// emits the worker as a *directory*: dist/output/public/_worker.js/index.js (+chunks).
+import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
 import process from "node:process"
+import { rollup } from "rollup"
 
 const pub = join(process.cwd(), "dist", "output", "public")
 const workerEntry = join(pub, "_worker.js", "index.js")
@@ -26,18 +30,39 @@ if (!existsSync(workerEntry)) {
   process.exit(0)
 }
 
-mkdirSync(fdir, { recursive: true })
-const out = join(fdir, "[[path]].js")
+// Temp entry that wraps the Nitro worker as a Pages Functions request handler.
+const entry = join(pub, "_fn-entry.mjs")
 writeFileSync(
-  out,
-  `import worker from "../_worker.js/index.js";
-
-// Pages Functions catch-all: forward every request to the bundled Nitro worker.
-// The worker serves static assets via its ASSETS binding and runs Nitro API
-// routes (e.g. /api/hotboard) for everything else.
-export const onRequest = async (ctx) => {
-  return worker.fetch(ctx.request, ctx.env, ctx);
-};
-`,
+  entry,
+  `import worker from ${JSON.stringify(workerEntry)};\n`
+  + `export const onRequest = async (ctx) => worker.fetch(ctx.request, ctx.env, ctx);\n`,
 )
-console.log("[make-functions] wrote", out)
+
+const outFile = join(fdir, "[[path]].js")
+mkdirSync(fdir, { recursive: true })
+
+console.log("[make-functions] bundling Nitro worker into", outFile)
+const bundle = await rollup({
+  input: entry,
+  onwarn(warning, warn) {
+    // Bundled deps (unenv polyfills) can trigger these; not fatal.
+    if (warning.code === "CIRCULAR_DEPENDENCY" || warning.code === "EVAL") return
+    warn(warning)
+  },
+})
+await bundle.write({
+  file: outFile,
+  format: "es",
+  inlineDynamicImports: true,
+  exports: "named",
+})
+await bundle.close()
+
+// Cleanup: the temp entry and the original _worker.js directory are no longer needed
+// (the function file is now self-contained).
+rmSync(entry, { force: true })
+rmSync(join(pub, "_worker.js"), { recursive: true, force: true })
+
+const sizeKb = Math.round(existsSync(outFile) ? (process.platform, require("node:fs").statSync(outFile).size / 1024) : 0)
+
+console.log(`[make-functions] wrote self-contained Pages Function: ${outFile} (${sizeKb} KB)`)

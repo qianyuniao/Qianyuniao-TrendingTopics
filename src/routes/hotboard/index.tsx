@@ -24,12 +24,12 @@ function HotboardBoard() {
   /** 分类及其下的平台数量 */
   const categories = useMemo(() => {
     const counts = new Map<string, number>()
-    for (const platform of platforms ?? []) {
+    for (const platform of (Array.isArray(platforms) ? platforms : [])) {
       const name = categoryOf(platform.id)
       counts.set(name, (counts.get(name) ?? 0) + 1)
     }
     return [
-      { name: ALL_CATEGORY, count: platforms?.length ?? 0 },
+      { name: ALL_CATEGORY, count: Array.isArray(platforms) ? platforms.length : 0 },
       ...HOTBOARD_CATEGORY_ORDER
         .filter(name => name === OTHER_CATEGORY || (counts.get(name) ?? 0) > 0)
         .map(name => ({ name, count: counts.get(name) ?? 0 })),
@@ -38,7 +38,7 @@ function HotboardBoard() {
 
   const list = useMemo(() => {
     const kw = keyword.trim().toLowerCase()
-    const result = (platforms ?? []).filter((platform) => {
+    const result = (Array.isArray(platforms) ? platforms : []).filter((platform) => {
       if (category !== ALL_CATEGORY && categoryOf(platform.id) !== category) return false
       if (!kw) return true
       return platform.name.toLowerCase().includes(kw) || platform.id.includes(kw)

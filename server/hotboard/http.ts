@@ -1,11 +1,15 @@
-import { Buffer } from "node:buffer"
 import { ofetch } from "ofetch"
-import iconv from "iconv-lite"
 
 /**
  * HTTP 工具：替代 Python hotboard.utils 的 aiohttp 封装
  * - httpGet / httpPost：请求 JSON 接口并解析
  * - httpGetText / httpPostText：请求文本 / HTML（按需指定编码，默认 utf-8）
+ *
+ * 解码说明：原先使用 iconv-lite，但 iconv-lite 在 Cloudflare Workers（workerd）
+ * 运行时依赖的 string_decoder 被 unenv 桩成「未实现」，导致所有走文本解码的平台
+ * （baidu / github / douyin / pojie52…）直接 502。改用 workerd 原生 TextDecoder
+ * （ICU 完整支持 gbk / gb2312 / big5 / utf-8 等中文编码），零依赖、无兼容坑。
+ *
  * 代理：Node 24 原生支持读取 HTTPS_PROXY / HTTP_PROXY
  * （`--use-env-proxy` 或 `NODE_USE_ENV_PROXY=1`，dev 脚本已配置），无需额外依赖
  */
@@ -49,7 +53,15 @@ async function request(url: string, options: RequestOptions = {}): Promise<any> 
     responseType: text ? "arrayBuffer" : "json",
   })
 
-  return text ? iconv.decode(Buffer.from(raw as ArrayBuffer), encoding) : raw
+  if (!text) return raw
+
+  // workerd 原生 TextDecoder（ICU）解码；遇到不支持的编码标签回退到 utf-8
+  const bytes = new Uint8Array(raw as ArrayBuffer)
+  try {
+    return new TextDecoder(encoding).decode(bytes)
+  } catch {
+    return new TextDecoder("utf-8").decode(bytes)
+  }
 }
 
 /** GET JSON */

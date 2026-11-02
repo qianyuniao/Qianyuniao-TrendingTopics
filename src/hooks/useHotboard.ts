@@ -8,7 +8,11 @@ export const HOTBOARD_REFRESH_SECONDS = 5 * 60
 export function useHotboardPlatforms() {
   return useQuery({
     queryKey: ["hotboard-platforms"],
-    queryFn: () => myFetch<HotboardPlatform[]>("/hotboard"),
+    queryFn: async () => {
+      const d = await myFetch("/hotboard")
+      // 兜底：接口异常/返回非数组时给空列表，渲染层不会因 .filter 崩溃
+      return Array.isArray(d) ? (d as HotboardPlatform[]) : []
+    },
     staleTime: 1000 * 60 * 10,
     retry: false,
   })

@@ -59,6 +59,16 @@ export const myFetch = $fetch.create({
   timeout: 15000,
   retry: 0,
   baseURL: "/api",
+  // 服务端接口只返回 JSON；若 Pages 未挂载服务端函数会返回 HTML 404，
+  // 这里强制按 JSON 解析，解析失败即抛错进入查询的 error 分支（显示空看板），
+  // 避免把 HTML 字符串当数组调用 .filter 导致整页 "Something went wrong!" 崩溃。
+  responseType: "json",
+  // 非 2xx（含 404/405 HTML）直接抛错，走 isError 兜底 UI
+  async onResponse({ response }) {
+    if (response.status >= 400) {
+      throw new Error(`服务端接口返回 ${response.status}`)
+    }
+  },
 })
 
 /**
