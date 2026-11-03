@@ -63,9 +63,10 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
     queryKey: ["source", id],
     queryFn: async ({ queryKey }) => {
       const id = queryKey[1] as SourceID
-      let url = `/s?id=${id}`
+      // 生产环境（Pages 纯静态托管）读构建期快照 /api/s/<id>.json，开发环境走服务端实时抓取
+      let url = import.meta.env.PROD ? `/s/${id}.json` : `/s?id=${id}`
       const headers: Record<string, any> = {}
-      if (refetchSources.has(id)) {
+      if (!import.meta.env.PROD && refetchSources.has(id)) {
         url = `/s?id=${id}&latest`
         const jwt = safeParseString(localStorage.getItem("jwt"))
         if (jwt) headers.Authorization = `Bearer ${jwt}`
