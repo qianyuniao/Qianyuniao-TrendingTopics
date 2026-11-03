@@ -1,0 +1,20 @@
+{
+  "error": true,
+  "url": "http://localhost:5199/api/s?id=mktnews-flash",
+  "statusCode": 500,
+  "statusMessage": "Server Error",
+  "message": "[GET] \"https://api.mktnews.net/api/flash?type=0&limit=50\": 403 Forbidden",
+  "stack": [
+    "[GET] \"https://api.mktnews.net/api/flash?type=0&limit=50\": 403 Forbidden",
+    "at createError (D:/02_MyWorkSpace/02_QYN Development Project/09Projects already tested/Qianyuniao-TrendingTopics/node_modules/.pnpm/h3@1.15.3/node_modules/h3/dist/index.mjs:71:15)",
+    "at Object.handler (D:/02_MyWorkSpace/02_QYN Development Project/09Projects already tested/Qianyuniao-TrendingTopics/dist/.nitro/dev/index.mjs:11004:11)",
+    "at process.processTicksAndRejections (node:internal/process/task_queues:103:5)",
+    "at async Object.handler (D:/02_MyWorkSpace/02_QYN Development Project/09Projects already tested/Qianyuniao-TrendingTopics/node_modules/.pnpm/h3-nightly@1.15.4-20250730-094032-325a62b/node_modules/h3-nightly/dist/index.mjs:2004:19)",
+    "at async toNodeHandle (D:/02_MyWorkSpace/02_QYN Development Project/09Projects already tested/Qianyuniao-TrendingTopics/node_modules/.pnpm/h3-nightly@1.15.4-20250730-094032-325a62b/node_modules/h3-nightly/dist/index.mjs:2296:7)",
+    "at async b (D:/02_MyWorkSpace/02_QYN Development Project/09Projects already tested/Qianyuniao-TrendingTopics/node_modules/.pnpm/node-mock-http@1.0.2/node_modules/node-mock-http/dist/index.mjs:1:6827)",
+    "at async C (D:/02_MyWorkSpace/02_QYN Development Project/09Projects already tested/Qianyuniao-TrendingTopics/node_modules/.pnpm/node-mock-http@1.0.2/node_modules/node-mock-http/dist/index.mjs:1:7110)",
+    "at async sendProxy (D:/02_MyWorkSpace/02_QYN Development Project/09Projects already tested/Qianyuniao-TrendingTopics/node_modules/.pnpm/h3-nightly@1.15.4-20250730-094032-325a62b/node_modules/h3-nightly/dist/index.mjs:1177:16)",
+    "at async Object.handler (D:/02_MyWorkSpace/02_QYN Development Project/09Projects already tested/Qianyuniao-TrendingTopics/node_modules/.pnpm/h3-nightly@1.15.4-20250730-094032-325a62b/node_modules/h3-nightly/dist/index.mjs:2004:19)",
+    "at async Server.toNodeHandle (D:/02_MyWorkSpace/02_QYN Development Project/09Projects already tested/Qianyuniao-TrendingTopics/node_modules/.pnpm/h3-nightly@1.15.4-20250730-094032-325a62b/node_modules/h3-nightly/dist/index.mjs:2296:7)"
+  ]
+}

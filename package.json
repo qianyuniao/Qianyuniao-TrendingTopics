@@ -26,7 +26,8 @@
     "prepare:tauri": "node scripts/prepare-tauri.mjs",
     "build:desktop": "npm run build && tauri build",
     "snapshot": "tsx scripts/snapshot-hotboard.ts",
-    "deploy:static": "vite build"
+    "deploy:static": "vite build",
+    "snapshot:sources": "node scripts/snapshot-sources.mjs"
   },
   "dependencies": {
     "@atlaskit/pragmatic-drag-and-drop": "^1.7.7",

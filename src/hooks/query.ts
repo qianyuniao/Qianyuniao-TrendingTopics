@@ -25,6 +25,18 @@ export function useEntireQuery(items: SourceID[]) {
     queryFn: async ({ queryKey }) => {
       const sources = queryKey[1]
       if (sources.length === 0) return null
+      // 生产环境（Pages 纯静态托管）没有 /s/entire 批量接口，
+      // 改为并行读取各源的静态快照 /api/s/<id>.json，单源失败不阻塞其他
+      if (import.meta.env.PROD) {
+        const snaps = await Promise.all(sources.map(async (id) => {
+          try {
+            return await myFetch<SourceResponse>(`/s/${id}.json`)
+          } catch {
+            return undefined
+          }
+        }))
+        return snaps.filter(v => v != null)
+      }
       const res: SourceResponse[] | undefined = await myFetch("/s/entire", {
         method: "POST",
         body: {

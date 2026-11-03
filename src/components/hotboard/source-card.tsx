@@ -49,7 +49,8 @@ export function SourceCard({
 
   const { data, isFetching, isError, error, refetch } = useQuery({
     queryKey: ["source-card", id, refreshKey],
-    queryFn: () => myFetch<SourceResponse>(`/api/s?id=${id}`),
+    // 生产环境（Pages 纯静态托管）读构建期快照 /api/s/<id>.json，开发环境走服务端实时抓取
+    queryFn: () => myFetch<SourceResponse>(import.meta.env.PROD ? `/s/${id}.json` : `/api/s?id=${id}`),
     enabled: inView,
     refetchInterval: REFRESH_SECONDS * 1000,
     staleTime: 0,

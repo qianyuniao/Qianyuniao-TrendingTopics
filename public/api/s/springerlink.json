@@ -1,0 +1,277 @@
+{
+  "status": "success",
+  "id": "springerlink",
+  "updatedTime": 1793665304788,
+  "items": [
+    {
+      "id": "10.1186/s12903-026-09913-z",
+      "title": "Cold atmospheric plasma treatment of Porphyromonas gingivalis biofilms on titanium: antibacterial activity and gingival fibroblast responses",
+      "url": "https://doi.org/10.1186/s12903-026-09913-z",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink · BMC Oral Health"
+      }
+    },
+    {
+      "id": "10.1186/s12889-026-30205-2",
+      "title": "School-based mindfulness interventions in children and adolescents: an umbrella review of systematic reviews, with implications for physical education",
+      "url": "https://doi.org/10.1186/s12889-026-30205-2",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink · BMC Public Health"
+      }
+    },
+    {
+      "id": "10.17504/protocols.io.6nvw6p2r7gmk/v1",
+      "title": "Procedure for utilizing simplified automated Kraken2 Database, Micromamba environment and Assembly Pipelines for NGS v1",
+      "url": "https://doi.org/10.17504/protocols.io.6nvw6p2r7gmk/v1",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink"
+      }
+    },
+    {
+      "id": "10.17504/protocols.io.qpvonx2zzl4o/v1",
+      "title": "Establishment of standardized NGS Sequencing, Data Analysis, and Reporting Protocols v1",
+      "url": "https://doi.org/10.17504/protocols.io.qpvonx2zzl4o/v1",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink"
+      }
+    },
+    {
+      "id": "10.17504/protocols.io.2bvjroj4wlk5/v1",
+      "title": "Procedure for Standardization of NGS Metagenomic and Viral Genome Assembly Report v1",
+      "url": "https://doi.org/10.17504/protocols.io.2bvjroj4wlk5/v1",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink"
+      }
+    },
+    {
+      "id": "10.17504/protocols.io.qpvrex252lmk/v1",
+      "title": "Procedure for Planning a Sequencing Run on Illumina BaseSpace Sequence Hub v1",
+      "url": "https://doi.org/10.17504/protocols.io.qpvrex252lmk/v1",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink"
+      }
+    },
+    {
+      "id": "10.17504/protocols.io.1wgb1d9bqvpk/v1",
+      "title": "Procedure for DNA Library Preparation v1",
+      "url": "https://doi.org/10.17504/protocols.io.1wgb1d9bqvpk/v1",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink"
+      }
+    },
+    {
+      "id": "10.17504/protocols.io.92ld3bjdng5b/v1",
+      "title": "Procedure for Normalization of DNA Library Pools for Final Pooled DNA Library v1",
+      "url": "https://doi.org/10.17504/protocols.io.92ld3bjdng5b/v1",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink"
+      }
+    },
+    {
+      "id": "10.17504/protocols.io.m6gp8e2n1lzp/v1",
+      "title": "Procedure for Downloading FASTQ Files From Illumina BaseSpace Sequence Hub v1",
+      "url": "https://doi.org/10.17504/protocols.io.m6gp8e2n1lzp/v1",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink"
+      }
+    },
+    {
+      "id": "10.17504/protocols.io.xmvm7oq6bv3p/v1",
+      "title": "Procedure for Sequencing Final Pooled DNA Library on the Illumina MiSeq i100 Plus Sequencing System v1",
+      "url": "https://doi.org/10.17504/protocols.io.xmvm7oq6bv3p/v1",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink"
+      }
+    },
+    {
+      "id": "10.17504/protocols.io.61ge6pjmwl47/v1",
+      "title": "Procedure for cDNA Synthesis of RNA Virus Target v1",
+      "url": "https://doi.org/10.17504/protocols.io.61ge6pjmwl47/v1",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink"
+      }
+    },
+    {
+      "id": "10.17504/protocols.io.26g7rz6e3vwz/v1",
+      "title": "Procedure for Bead Purification of DNA Samples After cDNA Synthesis v1",
+      "url": "https://doi.org/10.17504/protocols.io.26g7rz6e3vwz/v1",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink"
+      }
+    },
+    {
+      "id": "10.17504/protocols.io.xygxmk2dol8j/v1",
+      "title": "Procedure for Quantification of DNA samples v1",
+      "url": "https://doi.org/10.17504/protocols.io.xygxmk2dol8j/v1",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink"
+      }
+    },
+    {
+      "id": "10.17504/protocols.io.4egnxbjk6l5d/v1",
+      "title": "Procedure for Sample Processing for NGS Virus Target v1",
+      "url": "https://doi.org/10.17504/protocols.io.4egnxbjk6l5d/v1",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink"
+      }
+    },
+    {
+      "id": "10.17504/protocols.io.epv567m8ng1b/v1",
+      "title": "Procedure for MagMAX Pathogen RNA and DNA Extraction for NGS Testing v1",
+      "url": "https://doi.org/10.17504/protocols.io.epv567m8ng1b/v1",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink"
+      }
+    },
+    {
+      "id": "10.17504/protocols.io.jyl8nrk7dl2w/v1",
+      "title": "Procedure for DNase Treatment of RNA Virus Target for NGS Testing v1",
+      "url": "https://doi.org/10.17504/protocols.io.jyl8nrk7dl2w/v1",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink"
+      }
+    },
+    {
+      "id": "10.21203/rs.3.rs-10738729/v1",
+      "title": "Upper Airway and Neurological Manifestations of Pediatric Omicron Infection: From Novel Pathogen to Endemic Respiratory Virus — A Natural Experiment in Immuno-naive versus Primed Children",
+      "url": "https://doi.org/10.21203/rs.3.rs-10738729/v1",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink"
+      }
+    },
+    {
+      "id": "10.7759/cureus.119011",
+      "title": "Incidentally Diagnosed Chronic Myeloid Leukemia in a Young Adult With Neurofibromatosis Type 1",
+      "url": "https://doi.org/10.7759/cureus.119011",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink · Cureus"
+      }
+    },
+    {
+      "id": "10.1007/s00058-026-4219-y",
+      "title": "Diese Highlights erwarten Sie in Berlin",
+      "url": "https://doi.org/10.1007/s00058-026-4219-y",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink · Heilberufe"
+      }
+    },
+    {
+      "id": "10.1007/s00058-026-4212-5",
+      "title": "Pflege Markt",
+      "url": "https://doi.org/10.1007/s00058-026-4212-5",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink · Heilberufe"
+      }
+    },
+    {
+      "id": "10.1007/s00058-026-4207-2",
+      "title": "Wenn Sprechen schwerfällt",
+      "url": "https://doi.org/10.1007/s00058-026-4207-2",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink · Heilberufe"
+      }
+    },
+    {
+      "id": "10.1007/s00058-026-4220-5",
+      "title": "Der Newsletter des BLGS",
+      "url": "https://doi.org/10.1007/s00058-026-4220-5",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink · Heilberufe"
+      }
+    },
+    {
+      "id": "10.1007/s00058-026-4222-3",
+      "title": "Fragebogen: Pflege digital",
+      "url": "https://doi.org/10.1007/s00058-026-4222-3",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink · Heilberufe"
+      }
+    },
+    {
+      "id": "10.1007/s00058-026-4204-5",
+      "title": "Gut begleitet durch die Nacht",
+      "url": "https://doi.org/10.1007/s00058-026-4204-5",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink · Heilberufe"
+      }
+    },
+    {
+      "id": "10.1007/s00058-026-4203-6",
+      "title": "Sport treiben bei Diabetes",
+      "url": "https://doi.org/10.1007/s00058-026-4203-6",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink · Heilberufe"
+      }
+    },
+    {
+      "id": "10.1007/s00058-026-4215-2",
+      "title": "DER NEWSLETTER DES DPR",
+      "url": "https://doi.org/10.1007/s00058-026-4215-2",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink · Heilberufe"
+      }
+    },
+    {
+      "id": "10.1007/s00058-026-4213-4",
+      "title": "Pflegepolitik in 5 Minuten",
+      "url": "https://doi.org/10.1007/s00058-026-4213-4",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink · Heilberufe"
+      }
+    },
+    {
+      "id": "10.1007/s00058-026-4202-7",
+      "title": "Pflege Perspektiven",
+      "url": "https://doi.org/10.1007/s00058-026-4202-7",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink · Heilberufe"
+      }
+    },
+    {
+      "id": "10.1007/s00058-026-4209-0",
+      "title": "Selbstbestimmt leben mit Diabetes mellitus",
+      "url": "https://doi.org/10.1007/s00058-026-4209-0",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink · Heilberufe"
+      }
+    },
+    {
+      "id": "10.1007/s00058-026-4200-9",
+      "title": "In der Praxisanleitung mehr als Wissen vermitteln",
+      "url": "https://doi.org/10.1007/s00058-026-4200-9",
+      "pubDate": "2026-11-02",
+      "extra": {
+        "info": "SpringerLink · Heilberufe"
+      }
+    }
+  ]
+}
