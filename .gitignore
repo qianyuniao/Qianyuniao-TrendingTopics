@@ -4,6 +4,7 @@ node_modules/
 
 # ---------- 构建产物 ----------
 dist/
+dist_prev_*/
 .output/
 .vercel/
 .wrangler/
