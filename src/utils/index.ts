@@ -100,8 +100,12 @@ export async function fetchSnapshotThenLive<T>(
   const snapshot = await myFetch<T>(snapshotPath).catch(() => undefined)
   const live = myFetch<T>(livePath, options)
     .then((d) => {
-      if (d) onLive?.(d)
-      return d
+      // 实时接口"成功"但返回空列表、而快照有数据时，保留快照（如上游改版导致的空抓取）
+      const liveEmpty = Array.isArray((d as any)?.items) && (d as any).items.length === 0
+      const snapHasItems = Array.isArray((snapshot as any)?.items) && (snapshot as any).items.length > 0
+      const better = liveEmpty && snapHasItems ? snapshot : d
+      if (better) onLive?.(better as T)
+      return better as T | undefined
     })
     .catch(() => undefined)
   if (snapshot) return snapshot

@@ -102,6 +102,26 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
         }
       }
 
+      // 实时接口"成功"但返回空列表时，尝试用构建期快照顶上（如上游改版导致空抓取）
+      if (import.meta.env.PROD && Array.isArray(response.items) && response.items.length === 0) {
+        try {
+          const snap = await myFetch<SourceResponse>(`/s/${id}.json`)
+          if (snap?.items?.length) response = snap
+        } catch {
+          // 忽略，保持空数据
+        }
+      }
+
+      // 实时接口"成功"但返回空列表时，尝试用构建期快照顶上（如上游改版导致空抓取）
+      if (import.meta.env.PROD && Array.isArray(response.items) && response.items.length === 0) {
+        try {
+          const snap = await myFetch<SourceResponse>(`/s/${id}.json`)
+          if (snap?.items?.length) response = snap
+        } catch {
+          // 忽略，保持空数据
+        }
+      }
+
       diff()
 
       cacheSources.set(id, response)
