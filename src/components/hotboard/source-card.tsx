@@ -1,6 +1,6 @@
 import type { ReactNode } from "react"
 import { Link } from "@tanstack/react-router"
-import { useQuery } from "@tanstack/react-query"
+import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { useInView } from "framer-motion"
 import { colorOfSource, metadata } from "@shared/metadata"
 import { sources } from "@shared/sources"
@@ -44,13 +44,18 @@ export function SourceCard({
   /** 变化时重新拉取数据，用于收藏页的整页刷新 */
   refreshKey?: number
 }) {
+  const queryClient = useQueryClient()
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true })
 
   const { data, isFetching, isError, error, refetch } = useQuery({
     queryKey: ["source-card", id, refreshKey],
-    // 生产环境（Pages 纯静态托管）读构建期快照 /api/s/<id>.json，开发环境走服务端实时抓取
-    queryFn: () => myFetch<SourceResponse>(import.meta.env.PROD ? `/s/${id}.json` : `/api/s?id=${id}`),
+    // 生产环境：先读构建期快照秒开，后台拉服务端实时数据替换；开发环境直接实时
+    queryFn: () => fetchSnapshotThenLive<SourceResponse>(
+      `/s/${id}.json`,
+      `/api/s?id=${id}`,
+      d => queryClient.setQueryData(["source-card", id, refreshKey], d),
+    ),
     enabled: inView,
     refetchInterval: REFRESH_SECONDS * 1000,
     staleTime: 0,

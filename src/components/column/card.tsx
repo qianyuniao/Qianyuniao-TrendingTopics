@@ -64,9 +64,9 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
     queryFn: async ({ queryKey }) => {
       const id = queryKey[1] as SourceID
       // 生产环境（Pages 纯静态托管）读构建期快照 /api/s/<id>.json，开发环境走服务端实时抓取
-      let url = import.meta.env.PROD ? `/s/${id}.json` : `/s?id=${id}`
+      let url = `/s?id=${id}`
       const headers: Record<string, any> = {}
-      if (!import.meta.env.PROD && refetchSources.has(id)) {
+      if (refetchSources.has(id)) {
         url = `/s?id=${id}&latest`
         const jwt = safeParseString(localStorage.getItem("jwt"))
         if (jwt) headers.Authorization = `Bearer ${jwt}`
@@ -77,9 +77,14 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
         return cacheSources.get(id)
       }
 
-      const response: SourceResponse = await myFetch(url, {
-        headers,
-      })
+      let response: SourceResponse
+      try {
+        response = await myFetch(url, { headers })
+      } catch (e) {
+        // 服务端不可用（如 Pages 未挂载 Functions）时回落到构建期静态快照
+        if (!import.meta.env.PROD) throw e
+        response = await myFetch(`/s/${id}.json`)
+      }
 
       function diff() {
         try {

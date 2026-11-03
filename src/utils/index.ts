@@ -72,6 +72,45 @@ export const myFetch = $fetch.create({
 })
 
 /**
+ * 生产环境取数：优先走服务端实时接口，失败（服务端未挂载 / 超时 / 非 JSON）时
+ * 自动回落到构建期静态快照，保证看板永远有数据而不是空白。
+ * 开发环境直接走实时接口。
+ */
+export async function fetchLiveOrSnapshot<T>(livePath: string, snapshotPath: string, options?: Record<string, any>): Promise<T> {
+  if (!import.meta.env.PROD) return myFetch<T>(livePath, options)
+  try {
+    return await myFetch<T>(livePath, options)
+  } catch {
+    return myFetch<T>(snapshotPath)
+  }
+}
+
+/**
+ * 生产环境取数：先用构建期静态快照秒开，同时后台请求服务端实时数据，
+ * 拿到后通过 onLive 回调替换缓存 —— 既保证首屏不空白，也能自动实时更新。
+ * 开发环境直接走实时接口。
+ */
+export async function fetchSnapshotThenLive<T>(
+  snapshotPath: string,
+  livePath: string,
+  onLive?: (data: T) => void,
+  options?: Record<string, any>,
+): Promise<T> {
+  if (!import.meta.env.PROD) return myFetch<T>(livePath, options)
+  const snapshot = await myFetch<T>(snapshotPath).catch(() => undefined)
+  const live = myFetch<T>(livePath, options)
+    .then((d) => {
+      if (d) onLive?.(d)
+      return d
+    })
+    .catch(() => undefined)
+  if (snapshot) return snapshot
+  const d = await live
+  if (!d) throw new Error("数据获取失败")
+  return d
+}
+
+/**
  * 看板卡片统一外壳样式
  * 所有看板卡片（热榜广场 / 短视频 / 顶刊论文广场 / 最热·实时专栏 / 平台详情头部）
  * 共用同一套外壳：立体轮廓（panel-outline）+ 流星拖尾（meteor-ring）+ 基础结构。
