@@ -9,7 +9,8 @@ export function useHotboardPlatforms() {
   return useQuery({
     queryKey: ["hotboard-platforms"],
     queryFn: async () => {
-      const d = await myFetch("/hotboard")
+      // 生产（Pages 纯静态托管）读构建时生成的快照 JSON；开发走 Nitro 服务端
+      const d = await myFetch(import.meta.env.PROD ? "/hotboard.json" : "/hotboard")
       // 兜底：接口异常/返回非数组时给空列表，渲染层不会因 .filter 崩溃
       return Array.isArray(d) ? (d as HotboardPlatform[]) : []
     },
@@ -25,7 +26,7 @@ export function useHotboardPlatforms() {
 export function useHotboardData(id: string, refreshKey: number, enabled = true) {
   return useQuery({
     queryKey: ["hotboard", id, refreshKey],
-    queryFn: () => myFetch<HotboardResponse>(`/hotboard/${id}`),
+    queryFn: () => myFetch<HotboardResponse>(`/hotboard/${id}${import.meta.env.PROD ? ".json" : ""}`),
     enabled,
     refetchInterval: HOTBOARD_REFRESH_SECONDS * 1000,
     staleTime: 0,

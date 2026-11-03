@@ -24,7 +24,9 @@
     "test": "vitest -c vitest.config.ts",
     "tauri": "tauri",
     "prepare:tauri": "node scripts/prepare-tauri.mjs",
-    "build:desktop": "npm run build && tauri build"
+    "build:desktop": "npm run build && tauri build",
+    "snapshot": "tsx scripts/snapshot-hotboard.ts",
+    "deploy:static": "vite build"
   },
   "dependencies": {
     "@atlaskit/pragmatic-drag-and-drop": "^1.7.7",

@@ -36,7 +36,7 @@ function HotboardPlatformPage() {
 
   const { data, isFetching, isError, error, refetch } = useQuery({
     queryKey: ["hotboard", platform, search],
-    queryFn: () => myFetch<HotboardResponse>(`/hotboard/${platform}`, { query: search }),
+    queryFn: () => myFetch<HotboardResponse>(`/hotboard/${platform}${import.meta.env.PROD ? ".json" : ""}`, { query: search }),
     placeholderData: prev => prev,
     retry: false,
   })
