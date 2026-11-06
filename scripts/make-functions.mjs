@@ -13,7 +13,7 @@
 //
 // The Vite/Nitro build (with CF_PAGES=1, set automatically by Cloudflare Pages)
 // emits the worker as a *directory*: dist/output/public/_worker.js/index.js (+chunks).
-import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs"
+import { existsSync, mkdirSync, rmSync, statSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
 import process from "node:process"
 import { rollup } from "rollup"
@@ -63,6 +63,6 @@ await bundle.close()
 rmSync(entry, { force: true })
 rmSync(join(pub, "_worker.js"), { recursive: true, force: true })
 
-const sizeKb = Math.round(existsSync(outFile) ? (process.platform, require("node:fs").statSync(outFile).size / 1024) : 0)
+const sizeKb = Math.round(existsSync(outFile) ? statSync(outFile).size / 1024 : 0)
 
 console.log(`[make-functions] wrote self-contained Pages Function: ${outFile} (${sizeKb} KB)`)

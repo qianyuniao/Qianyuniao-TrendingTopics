@@ -1,8 +1,8 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query"
 import type { HotboardPlatform, HotboardResponse } from "@shared/hotboard"
 
-/** 热榜自动刷新间隔（秒） */
-export const HOTBOARD_REFRESH_SECONDS = 5 * 60
+/** 热榜自动刷新间隔（秒），6 小时，降低更新频率 */
+export const HOTBOARD_REFRESH_SECONDS = 6 * 60 * 60
 
 /** 平台列表：三个热榜页面共用，10 分钟内不重复请求 */
 export function useHotboardPlatforms() {

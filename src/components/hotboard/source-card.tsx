@@ -13,8 +13,8 @@ import { newsRow } from "./row-data"
 import type { SortableCardProps } from "./sortable-board"
 import { boardCardClass } from "~/utils"
 
-/** 自动刷新间隔（秒） */
-const REFRESH_SECONDS = 5 * 60
+/** 自动刷新间隔（秒），6 小时，降低更新频率 */
+const REFRESH_SECONDS = 6 * 60 * 60
 
 /**
  * 信息流源卡片：顶刊论文、国家政策、统计数据等走 `/api/s` 的源共用这一份实现

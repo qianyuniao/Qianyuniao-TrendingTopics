@@ -17,9 +17,10 @@ export function useCountdown(seconds: number) {
   return { left, reset }
 }
 
-/** 把秒数格式化为 MM:SS */
+/** 把秒数格式化为 HH:MM:SS（≥1 小时时显示小时，否则 MM:SS） */
 export function formatCountdown(seconds: number) {
-  const m = Math.floor(seconds / 60).toString().padStart(2, "0")
+  const h = Math.floor(seconds / 3600)
+  const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, "0")
   const s = (seconds % 60).toString().padStart(2, "0")
-  return `${m}:${s}`
+  return h > 0 ? `${h}:${m}:${s}` : `${m}:${s}`
 }

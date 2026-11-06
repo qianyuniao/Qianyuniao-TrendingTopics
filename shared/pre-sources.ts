@@ -3,13 +3,15 @@ import { Interval } from "./consts"
 import { typeSafeObjectFromEntries } from "./type.util"
 import type { OriginSource, Source, SourceID } from "./types"
 
+// 所有看板源统一为 6 小时刷新一次（用户要求降低自动更新频率，避免频繁抓取上游）
+const SIX_HOURS = 6 * 60 * 60 * 1000
 const Time = {
   Test: 1,
-  Realtime: 2 * 60 * 1000,
-  Fast: 5 * 60 * 1000,
-  Default: Interval, // 10min
-  Common: 30 * 60 * 1000,
-  Slow: 60 * 60 * 1000,
+  Realtime: SIX_HOURS,
+  Fast: SIX_HOURS,
+  Default: Interval, // 6h
+  Common: SIX_HOURS,
+  Slow: SIX_HOURS,
 }
 
 export const originSources = {
